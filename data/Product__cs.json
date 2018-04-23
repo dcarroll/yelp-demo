@@ -1,0 +1,238 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef1"
+            },
+            "Name": "MODEL A",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 10000,
+            "Gender__c": "Men",
+            "Category__c": "Mountain",
+            "Material__c": "Carbon",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike0.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef2"
+            },
+            "Name": "DYNAMO X1",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 7800,
+            "Gender__c": "Men",
+            "Category__c": "Mountain",
+            "Material__c": "Carbon",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike1.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef3"
+            },
+            "Name": "FUSE",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 7500,
+            "Gender__c": "Men",
+            "Category__c": "Mountain",
+            "Material__c": "Carbon",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike2.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef4"
+            },
+            "Name": "DYNAMO X2",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 6800,
+            "Gender__c": "Men",
+            "Category__c": "Mountain",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike3.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef5"
+            },
+            "Name": "DYNAMO X3",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 5600,
+            "Gender__c": "Men",
+            "Category__c": "Mountain",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike4.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef6"
+            },
+            "Name": "DYNAMO X4",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 5500,
+            "Gender__c": "Women",
+            "Category__c": "Mountain",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike5.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef7"
+            },
+            "Name": "FUSE X1",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 5000,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike6.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef8"
+            },
+            "Name": "FUSE X2",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 5000,
+            "Gender__c": "Men",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike7.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef9"
+            },
+            "Name": "FUSE X3",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 4600,
+            "Gender__c": "Men",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike8.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef10"
+            },
+            "Name": "DYNAMO X5",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 4600,
+            "Gender__c": "Men",
+            "Category__c": "Mountain",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike9.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef11"
+            },
+            "Name": "FUSE X4",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 3400,
+            "Gender__c": "Men",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike10.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef12"
+            },
+            "Name": "FUSE X5",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 3400,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike11.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef13"
+            },
+            "Name": "ELECTRA X1",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 3200,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike12.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef14"
+            },
+            "Name": "ELECTRA X2",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 3200,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike13.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef15"
+            },
+            "Name": "FUSE X6",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 2700,
+            "Gender__c": "Men",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike14.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef16"
+            },
+            "Name": "FUSE X7",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 2700,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike15.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef17"
+            },
+            "Name": "ELECTRA X3",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 2700,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike16.jpeg"
+        },
+        {
+            "attributes": {
+                "type": "Product__c",
+                "referenceId": "Product__cRef18"
+            },
+            "Name": "ELECTRA X4",
+            "Description__c": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Price__c": 2700,
+            "Gender__c": "Women",
+            "Category__c": "Commuter",
+            "Material__c": "Aluminum",
+            "Picture_URL__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike17.jpeg"
+        }
+    ]
+}

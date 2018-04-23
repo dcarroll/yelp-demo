@@ -1,0 +1,1204 @@
+[
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524245070148,
+            "changeTime": 1524235956090,
+            "contentHash": "51d86f3b64a3d9a0048d192f02147b0e9e9594e4",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": true
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524235956092,
+            "changeTime": 1524235956092,
+            "contentHash": "ae41ed56706e4439a34cda97ac997d7988935c2f",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default",
+            "isDirectory": true,
+            "size": 480,
+            "modifiedTime": 1524244827276,
+            "changeTime": 1524244827276,
+            "contentHash": "79d4d72a99095263d36b4773f41129057a3ba122",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524324675615,
+            "changeTime": 1524324515985,
+            "contentHash": "3b64134a7fa89550c17bb59630d20240d6cf2389",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper",
+            "isDirectory": true,
+            "size": 352,
+            "modifiedTime": 1524236179878,
+            "changeTime": 1524236179878,
+            "contentHash": "29a1224ec567edd22a19089c6e94ab53505978a3",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.auradoc",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.auradoc",
+            "isDirectory": false,
+            "size": 209,
+            "modifiedTime": 1524236179878,
+            "changeTime": 1524236179878,
+            "contentHash": "fd7f560d82324d6a8255c8c6ebf60698f5f93f1e",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.cmp",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.cmp",
+            "isDirectory": false,
+            "size": 331,
+            "modifiedTime": 1524242493402,
+            "changeTime": 1524242493402,
+            "contentHash": "74a49d354c4789a411d73c667d0c264acd62b092",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.cmp-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.cmp-meta.xml",
+            "isDirectory": false,
+            "size": 250,
+            "modifiedTime": 1524236179876,
+            "changeTime": 1524236179876,
+            "contentHash": "fed8eab5b39c7f0e4abc15c1adfd724c46a0d48f",
+            "isMetadataFile": true,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.css",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.css",
+            "isDirectory": false,
+            "size": 10,
+            "modifiedTime": 1524236179877,
+            "changeTime": 1524236179877,
+            "contentHash": "44063bf628f237edaa1f3f358714dd40ac321703",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.design",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.design",
+            "isDirectory": false,
+            "size": 40,
+            "modifiedTime": 1524236179878,
+            "changeTime": 1524236179878,
+            "contentHash": "c5618bc7228e29c74b07b78fd040e05ae8a541ec",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.svg",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapper.svg",
+            "isDirectory": false,
+            "size": 661,
+            "modifiedTime": 1524236179877,
+            "changeTime": 1524236179877,
+            "contentHash": "721eeffe17135535c3834b77f1e1968fe6360ed4",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapperController.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapperController.js",
+            "isDirectory": false,
+            "size": 289,
+            "modifiedTime": 1524236529423,
+            "changeTime": 1524236529423,
+            "contentHash": "68010bac2cbe4cfa5fe62fdd2994e667e61c028f",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapperHelper.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapperHelper.js",
+            "isDirectory": false,
+            "size": 45,
+            "modifiedTime": 1524236179876,
+            "changeTime": 1524236179876,
+            "contentHash": "fa35ebecd73c127729bf311a95b613f711a6f10b",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapperRenderer.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/productListWrapper/productListWrapperRenderer.js",
+            "isDirectory": false,
+            "size": 50,
+            "modifiedTime": 1524236179877,
+            "changeTime": 1524236179877,
+            "contentHash": "8b79b016f08440c9b2f7d706a6d21229c854540b",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/classes",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/classes",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524236232009,
+            "changeTime": 1524236232009,
+            "contentHash": "75e29de855608dc1ae9a9616ad0867a82ea01eb3",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/classes/ProductController.cls",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/classes/ProductController.cls",
+            "isDirectory": false,
+            "size": 229,
+            "modifiedTime": 1524249910000,
+            "changeTime": 1524245555560,
+            "contentHash": "e906ab3921d650b1595ccb17fb5a86ede753b202",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/classes/ProductController.cls-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/classes/ProductController.cls-meta.xml",
+            "isDirectory": false,
+            "size": 195,
+            "modifiedTime": 1524236232009,
+            "changeTime": 1524236232009,
+            "contentHash": "e95dc34bb3d16a1a27f26473f2651a097cfe9f87",
+            "isMetadataFile": true,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents",
+            "isDirectory": true,
+            "size": 352,
+            "modifiedTime": 1524252438086,
+            "changeTime": 1524252438086,
+            "contentHash": "13c64930be9bc7b31db12406ea0a33702111490b",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list",
+            "isDirectory": true,
+            "size": 192,
+            "modifiedTime": 1524236093678,
+            "changeTime": 1524236093678,
+            "contentHash": "af24d4494cfed78b6561ccac1d9b50a1f4851662",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.css",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.css",
+            "isDirectory": false,
+            "size": 13,
+            "modifiedTime": 1524251204409,
+            "changeTime": 1524251204409,
+            "contentHash": "8f0ad9076e942feb2551ef27db70bcf984d56f57",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.html",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.html",
+            "isDirectory": false,
+            "size": 239,
+            "modifiedTime": 1524250566199,
+            "changeTime": 1524250566199,
+            "contentHash": "da8d3e44455c2fbe076e99d926d81c3cdddc8909",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.js",
+            "isDirectory": false,
+            "size": 117,
+            "modifiedTime": 1524244521522,
+            "changeTime": 1524244521522,
+            "contentHash": "bc802ac3077d2323d6b6cd58f2fe07394edbddba",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.js-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list/product_list.js-meta.xml",
+            "isDirectory": false,
+            "size": 208,
+            "modifiedTime": 1523978479525,
+            "changeTime": 1524236093678,
+            "contentHash": "4d5542f954c0fac6d00d289fa819f65301c1a368",
+            "isMetadataFile": true,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item",
+            "isDirectory": true,
+            "size": 192,
+            "modifiedTime": 1524237251296,
+            "changeTime": 1524237251296,
+            "contentHash": "362d78630918f0913eb5d784766151d79823ed63",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.css",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.css",
+            "isDirectory": false,
+            "size": 399,
+            "modifiedTime": 1524251111688,
+            "changeTime": 1524251111688,
+            "contentHash": "22f8c7fd599feae389aacd8126fbbd1ba636f004",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.html",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.html",
+            "isDirectory": false,
+            "size": 370,
+            "modifiedTime": 1524250915926,
+            "changeTime": 1524250915926,
+            "contentHash": "a50642c2de588c029d311a80cf9b8436ce7829a0",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.js",
+            "isDirectory": false,
+            "size": 224,
+            "modifiedTime": 1524252229922,
+            "changeTime": 1524252229922,
+            "contentHash": "39bf9c81dd38f73ccbeef2f58566151e23a17597",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.js-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/product_list_item/product_list_item.js-meta.xml",
+            "isDirectory": false,
+            "size": 208,
+            "modifiedTime": 1524237251296,
+            "changeTime": 1524237251296,
+            "contentHash": "4d5542f954c0fac6d00d289fa819f65301c1a368",
+            "isMetadataFile": true,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc",
+            "isDirectory": true,
+            "size": 352,
+            "modifiedTime": 1524245070148,
+            "changeTime": 1524245070148,
+            "contentHash": "167a54e5ac7d458b178fd5b10c8d1b2bd0e4f653",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": true
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts",
+            "isDirectory": true,
+            "size": 160,
+            "modifiedTime": 1524237539091,
+            "changeTime": 1524237539091,
+            "contentHash": "501c5f90eab884ea0909f8a13909beb02316acfd",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects",
+            "isDirectory": true,
+            "size": 160,
+            "modifiedTime": 1524237539084,
+            "changeTime": 1524237539084,
+            "contentHash": "f32e4c026cc5dec8d0dc82814f7007e1ca97b35e",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524237539085,
+            "changeTime": 1524237539085,
+            "contentHash": "8af4df4b29505362c8c0a2f73dec9ac342f95464",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields",
+            "isDirectory": true,
+            "size": 160,
+            "modifiedTime": 1524237539086,
+            "changeTime": 1524237539086,
+            "contentHash": "96af79680edfbbae54331e03fc58da9a9eaa84e6",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524237539080,
+            "changeTime": 1524237539080,
+            "contentHash": "8f6f7579649d6c5da2021b057bac79b1cf2f4200",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c/fields",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c/fields",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1524237539080,
+            "changeTime": 1524237539080,
+            "contentHash": "412e080707594cba6a960efbbe27e7782f2a1d73",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524237539073,
+            "changeTime": 1524237539073,
+            "contentHash": "2989d3e7d0eb1a8e5d26f4a8889fcbfdbf6f0440",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 192,
+            "modifiedTime": 1524324832819,
+            "changeTime": 1524324832819,
+            "contentHash": "1851c1873aa5fa1496813093a1d68ebbec47bd93"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles",
+            "isDirectory": true,
+            "size": 192,
+            "modifiedTime": 1524237539109,
+            "changeTime": 1524237539109,
+            "contentHash": "9c367b0e719eb8c48c5b0d9cbfb5f580a4bd6717",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts/Order_Item__c-Order Item Layout.layout-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts/Order_Item__c-Order Item Layout.layout-meta.xml",
+            "isDirectory": false,
+            "size": 2198,
+            "modifiedTime": 1524237539090,
+            "changeTime": 1524237539090,
+            "contentHash": "1cb3a728d2b2877f6023b3cbe27f5d5430c82dd1",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts/Order__c-Order Layout.layout-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts/Order__c-Order Layout.layout-meta.xml",
+            "isDirectory": false,
+            "size": 1930,
+            "modifiedTime": 1524237539091,
+            "changeTime": 1524237539091,
+            "contentHash": "4c1f96cd94fb27bef1ed802633179bffda2e960b",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts/Product__c-Product Layout.layout-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/layouts/Product__c-Product Layout.layout-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 2502,
+            "modifiedTime": 1524324832823,
+            "changeTime": 1524324832823,
+            "contentHash": "11a387a8ee6ea972869771bf206f00d7b6f191db"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/Order_Item__c.object-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/Order_Item__c.object-meta.xml",
+            "isDirectory": false,
+            "size": 2188,
+            "modifiedTime": 1524237539085,
+            "changeTime": 1524237539085,
+            "contentHash": "6802a5974d99e9abe916ae777432ab58a35fa037",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields/Order__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields/Order__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 595,
+            "modifiedTime": 1524237539085,
+            "changeTime": 1524237539085,
+            "contentHash": "c61d2bc02a31c8768424d41d95e17cffbb44819a",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields/Product__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields/Product__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 507,
+            "modifiedTime": 1524237539085,
+            "changeTime": 1524237539085,
+            "contentHash": "9599843b70a3af92763e6b7e6cea848324a8784d",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields/Qty__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order_Item__c/fields/Qty__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 379,
+            "modifiedTime": 1524237539086,
+            "changeTime": 1524237539086,
+            "contentHash": "595fbd7d9687564b45d4866bfe383c6fb043885a",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c/Order__c.object-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c/Order__c.object-meta.xml",
+            "isDirectory": false,
+            "size": 2169,
+            "modifiedTime": 1524237539080,
+            "changeTime": 1524237539080,
+            "contentHash": "791828c251c3b8970b5421e525d4ac5a8b97f2e5",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c/fields/Account__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Order__c/fields/Account__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 591,
+            "modifiedTime": 1524237539080,
+            "changeTime": 1524237539080,
+            "contentHash": "c513f8ca9addb03d95c974c33dd9ab622c6aed00",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/Product__c.object-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/Product__c.object-meta.xml",
+            "isDirectory": false,
+            "size": 2074,
+            "modifiedTime": 1524237539073,
+            "changeTime": 1524237539073,
+            "contentHash": "c748c348b7fa83d4ab4fb91b9b6b279c327a817b",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Description__c.field-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Description__c.field-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 354,
+            "modifiedTime": 1524324832819,
+            "changeTime": 1524324832819,
+            "contentHash": "f62c0843c655e8ab00b510e537d7659ad5f3477b"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Picture_URL__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Picture_URL__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 315,
+            "modifiedTime": 1524237539074,
+            "changeTime": 1524237539074,
+            "contentHash": "7533f19b23213d1e671b85b59211f1cecd4ab814",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Price__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Price__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 358,
+            "modifiedTime": 1524237539074,
+            "changeTime": 1524237539074,
+            "contentHash": "b0c7289c7a6f5a227f88d9142e9a37c30ac77f15",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Admin.profile-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Admin.profile-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 19950,
+            "modifiedTime": 1524324832866,
+            "changeTime": 1524324832866,
+            "contentHash": "0cabea6c03ffe2b3141bba1ea87de0f53ff9abd1"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Custom%3A Marketing Profile.profile-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Custom%3A Marketing Profile.profile-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 5896,
+            "modifiedTime": 1524324832830,
+            "changeTime": 1524324832830,
+            "contentHash": "b6ba7c2837341f97b14e8070256a4d3454e2093f"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Custom%3A Sales Profile.profile-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Custom%3A Sales Profile.profile-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 5896,
+            "modifiedTime": 1524324832836,
+            "changeTime": 1524324832836,
+            "contentHash": "b6ba7c2837341f97b14e8070256a4d3454e2093f"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Custom%3A Support Profile.profile-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/profiles/Custom%3A Support Profile.profile-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 6234,
+            "modifiedTime": 1524324832844,
+            "changeTime": 1524324832844,
+            "contentHash": "dbdebfe7b33eebefe70b2fbd6fcd3990b97d0273"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/flexipages/Order_Record_Page.flexipage-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/flexipages/Order_Record_Page.flexipage-meta.xml",
+            "isDirectory": false,
+            "size": 3197,
+            "modifiedTime": 1524244827274,
+            "changeTime": 1524244827274,
+            "contentHash": "a8581b263e5086f4d89ca84cffad81112b068073",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/flexipages/Northern_Trail_UtilityBar.flexipage-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/flexipages/Northern_Trail_UtilityBar.flexipage-meta.xml",
+            "isDirectory": false,
+            "size": 388,
+            "modifiedTime": 1524238809755,
+            "changeTime": 1524238809755,
+            "contentHash": "183e6d19c171b5795e29af1e90a1f7904840657b",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/tabs/Product__c.tab-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/tabs/Product__c.tab-meta.xml",
+            "isDirectory": false,
+            "size": 231,
+            "modifiedTime": 1524238809755,
+            "changeTime": 1524238809755,
+            "contentHash": "c87075ad8e080098d6419a83c47058bb1b28dfcd",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/tabs/Order__c.tab-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/tabs/Order__c.tab-meta.xml",
+            "isDirectory": false,
+            "size": 220,
+            "modifiedTime": 1524238809756,
+            "changeTime": 1524238809756,
+            "contentHash": "d9121f0672c5560916f74000926d48c9b89477a2",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/applications/Northern_Trail.app-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/applications/Northern_Trail.app-meta.xml",
+            "isDirectory": false,
+            "size": 668,
+            "modifiedTime": 1524238809757,
+            "changeTime": 1524238809757,
+            "contentHash": "4dc3c768ec69b3e2a052ca2f66c34dd28685afe6",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/permissionsets/nto.permissionset-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/permissionsets/nto.permissionset-meta.xml",
+            "isDirectory": false,
+            "size": 3031,
+            "modifiedTime": 1524238809804,
+            "changeTime": 1524238809804,
+            "contentHash": "cf1f9ad11ddff1d955925ac0cb3e806dc66493c2",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/contentassets/nto_logo.asset-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/contentassets/nto_logo.asset-meta.xml",
+            "isDirectory": false,
+            "size": 466,
+            "modifiedTime": 1524238809804,
+            "changeTime": 1524238809804,
+            "contentHash": "c91fdc08d180a8c17f7a9ba74ebe847271e3cf65",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/contentassets/nto_logo.asset",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/contentassets/nto_logo.asset",
+            "isDirectory": false,
+            "size": 99774,
+            "modifiedTime": 1524238809805,
+            "changeTime": 1524238809805,
+            "contentHash": "fd1f1ca125702b360977407294e422988efdc4e9",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/flexipages",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/flexipages",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524244827274,
+            "changeTime": 1524238809754,
+            "contentHash": "518d8c9140aa53bdc3cab39129c977e62f902662",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/tabs",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/tabs",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524238809756,
+            "changeTime": 1524238809756,
+            "contentHash": "b2b5f5ff71f16b84952cc0757f61e205a67537a6",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/applications",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/applications",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1524238809757,
+            "changeTime": 1524238809757,
+            "contentHash": "9820ca4ed3dc4481bb55adc01c80b129ca327dfd",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/permissionsets",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/permissionsets",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1524238809804,
+            "changeTime": 1524238809804,
+            "contentHash": "534b9a1a43a6e78e1a3b1e8d4fb9f500009a5ba5",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/contentassets",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/contentassets",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524238809805,
+            "changeTime": 1524238809805,
+            "contentHash": "de197caa5964a89f54dab61115ff0dd50e084716",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/events",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/events",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1524242967269,
+            "changeTime": 1524242967269,
+            "contentHash": "29b09369b100dd7227e7b7e835afaa0e268cc268",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/events/events.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/events/events.js",
+            "isDirectory": false,
+            "size": 23,
+            "modifiedTime": 1524242607809,
+            "changeTime": 1524242607809,
+            "contentHash": "94dbbc4a245a83be081b6243d0d196d8dd7342be",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/events/events.js-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/events/events.js-meta.xml",
+            "isDirectory": false,
+            "size": 208,
+            "modifiedTime": 1524242967268,
+            "changeTime": 1524242967269,
+            "contentHash": "4d5542f954c0fac6d00d289fa819f65301c1a368",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/settings/Security.settings-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/settings/Security.settings-meta.xml",
+            "isDirectory": false,
+            "size": 2515,
+            "modifiedTime": 1524244827277,
+            "changeTime": 1524244827277,
+            "contentHash": "a39c5ffdb3c855e2da94059adea8288f484f1db3",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/settings",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/settings",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1524244827276,
+            "changeTime": 1524244827276,
+            "contentHash": "e364e4d3c503804e0ca6d6bb92ab9cc0ceac2327",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card",
+            "isDirectory": true,
+            "size": 160,
+            "modifiedTime": 1518369219505,
+            "changeTime": 1524250477350,
+            "contentHash": "c2df5948d687d9e3b4e881ef53f6896dc73db331",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card/card.html",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card/card.html",
+            "isDirectory": false,
+            "size": 640,
+            "modifiedTime": 1524250541708,
+            "changeTime": 1524250541708,
+            "contentHash": "8530b7f7e0af77d2527ed0dc7b329378a1c8dbed",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card/card.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card/card.js",
+            "isDirectory": false,
+            "size": 104,
+            "modifiedTime": 1524250546726,
+            "changeTime": 1524250546726,
+            "contentHash": "b96e8b50ffa40907aab465f7cfd22eb0383cb277",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card/card.js-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/card/card.js-meta.xml",
+            "isDirectory": false,
+            "size": 208,
+            "modifiedTime": 1518363781716,
+            "changeTime": 1524250477349,
+            "contentHash": "4d5542f954c0fac6d00d289fa819f65301c1a368",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder",
+            "isDirectory": true,
+            "size": 192,
+            "modifiedTime": 1524251336497,
+            "changeTime": 1524251336497,
+            "contentHash": "ade8fa83e8b85f281d965ed26e07c623e2c7758e",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile",
+            "isDirectory": true,
+            "size": 192,
+            "modifiedTime": 1524252505275,
+            "changeTime": 1524252505275,
+            "contentHash": "feab52aae3e34d767b49bcc65334035264b3e0b2",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.css",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.css",
+            "isDirectory": false,
+            "size": 13,
+            "modifiedTime": 1524251305305,
+            "changeTime": 1524251305305,
+            "contentHash": "8f0ad9076e942feb2551ef27db70bcf984d56f57",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.html",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.html",
+            "isDirectory": false,
+            "size": 300,
+            "modifiedTime": 1524324443149,
+            "changeTime": 1524324443149,
+            "contentHash": "55ba8c49e5e5fdfc0a66dfdf36b493019202767d",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.js",
+            "isDirectory": false,
+            "size": 608,
+            "modifiedTime": 1524252232471,
+            "changeTime": 1524252232471,
+            "contentHash": "76a46bd6152ffde49095d6a943489bf4411abb75",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.js-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_builder/order_builder.js-meta.xml",
+            "isDirectory": false,
+            "size": 208,
+            "modifiedTime": 1524251336497,
+            "changeTime": 1524251336498,
+            "contentHash": "4d5542f954c0fac6d00d289fa819f65301c1a368",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.css",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.css",
+            "isDirectory": false,
+            "size": 399,
+            "modifiedTime": 1524252465074,
+            "changeTime": 1524252465075,
+            "contentHash": "22f8c7fd599feae389aacd8126fbbd1ba636f004",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.html",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.html",
+            "isDirectory": false,
+            "size": 376,
+            "modifiedTime": 1524324429361,
+            "changeTime": 1524324429361,
+            "contentHash": "309d241d6802f5a6be48e5b121ec6793248364e1",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.js",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.js",
+            "isDirectory": false,
+            "size": 113,
+            "modifiedTime": 1524324417887,
+            "changeTime": 1524324417887,
+            "contentHash": "0ea423427d48b27602915a47bac7bd77af732345",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.js-meta.xml",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.js-meta.xml",
+            "isDirectory": false,
+            "size": 208,
+            "modifiedTime": 1524252505275,
+            "changeTime": 1524252505276,
+            "contentHash": "4d5542f954c0fac6d00d289fa819f65301c1a368",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/orderBuilderWrapper",
+        {
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/aura/orderBuilderWrapper",
+            "isDirectory": true,
+            "size": 352,
+            "modifiedTime": 1524324675618,
+            "changeTime": 1524324515989,
+            "contentHash": "d4851adbd12ca7bb949de2d98abb753c30da08d2",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Category__c.field-meta.xml",
+        {
+            "state": "u",
+            "sourcePath": "/Users/ccoenraets/lwc/northern-trail-lwc/force-app/main/default/objects/Product__c/fields/Category__c.field-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 1121,
+            "modifiedTime": 1524324832820,
+            "changeTime": 1524324832820,
+            "contentHash": "b759f0c2cfcb2290af63e1b8ba9bcfe677bab37f"
+        }
+    ]
+]

@@ -1,0 +1,32 @@
+.content {
+    cursor: -webkit-grab;
+    padding: 8px;
+    background-color: #FFFFFF;
+}
+
+a {
+	color: inherit;
+}
+
+.content:active {
+    cursor: -webkit-grabbing;
+}
+
+img.product {
+    /* height: auto; */
+    /* min-height: 50px; */
+    height: 120px;
+}
+
+img {
+    max-width: initial;
+}
+
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.price {
+    /* color: #FF6600; */
+}

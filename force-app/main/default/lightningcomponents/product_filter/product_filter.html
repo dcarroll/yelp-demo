@@ -1,0 +1,33 @@
+<template>
+
+    <c-card header="Filters">
+
+        <lightning-button slot="actions" label="Reset" onclick={resetHandler}></lightning-button>
+
+        <lightning-input label="Search Key" type="text" onchange={searchKeyChangeHandler}></lightning-input>
+
+        <section>
+            <lightning-slider label="Max Price" step="100" min="0" max="10000" value={maxPrice} onchange={maxPriceChangeHandler}></lightning-slider>
+        </section>
+
+        <section>
+            <h1>Category</h1>
+            <lightning-input label="Commuter" type="checkbox" checked={commuter} data-src="commuter" onchange={onCheckboxChange}></lightning-input>
+            <lightning-input label="Mountain" type="checkbox" checked={mountain} data-src="mountain" onchange={onCheckboxChange}></lightning-input>
+        </section>
+
+        <section>
+            <h1>Material</h1>
+            <lightning-input label="Aluminum" type="checkbox" checked={aluminum} data-src="aluminum" onchange={onCheckboxChange}></lightning-input>
+            <lightning-input label="Carbon" type="checkbox" checked={carbon} data-src="carbon" onchange={onCheckboxChange}></lightning-input>
+        </section>
+
+        <section>
+            <h1>Gender</h1>
+            <lightning-input label="Men" type="checkbox" checked={men} data-src="men" onchange={onCheckboxChange}></lightning-input>
+            <lightning-input label="Women" type="checkbox" checked={women} data-src="women" onchange={onCheckboxChange}></lightning-input>
+        </section>
+
+    </c-card>
+
+</template>

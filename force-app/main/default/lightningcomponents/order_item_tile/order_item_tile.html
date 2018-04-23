@@ -1,0 +1,20 @@
+<template>
+
+    <div class="content">
+        <img src={orderitem.pictureURL} class="product slds-align_absolute-center"></img>
+        <div>
+            <p class="title slds-align_absolute-center">{orderitem.name}</p>
+            <p class="slds-align_absolute-center">MSRP:&nbsp;
+                <lightning-formatted-number format-style="currency" currency-code="USD" value={orderitem.price} class="price" maximum-fraction-digits="0"></lightning-formatted-number>
+            </p>
+            <p class="slds-align_absolute-center">
+                <lightning-input type="number" name="qty" label="S:" value={orderitem.qtyS} step="1" onblur={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input type="number" name="qty" label="M:" value={orderitem.qtyM} step="1" onblur={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input type="number" name="qty" label="L:" value={orderitem.qtyL} step="1" onblur={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input type="number" name="qty" label="XL:" value={orderitem.qtyXL} step="1" onblur={qtyChangeHandler} class="qty"></lightning-input>
+            </p>
+            <p class="slds-align_absolute-center"><lightning-button-icon icon-name="utility:delete" variant="bare" size="medium" class="toggle" onclick={deleteHandler}></lightning-button-icon></p>
+    </div>
+    </div>
+
+</template>

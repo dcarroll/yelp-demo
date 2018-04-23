@@ -1,0 +1,26 @@
+.content {
+    padding: 8px;
+    background-color: #FFFFFF;
+}
+
+img.product {
+    height: 120px;
+}
+
+img {
+    max-width: initial;
+}
+
+.title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.price {
+    /* color: #FF6600; */
+}
+
+.qty {
+    width: 70px;
+    margin: 0 4px;
+}

@@ -1,0 +1,18 @@
+<template>
+
+    <div ondragstart={dragStart}>
+    <a onclick={productSelectedHandler}>
+        <div class="content">
+            <img src={product.Picture_URL__c} class="product slds-align_absolute-center"></img>
+            <div>
+                <p class="title slds-align_absolute-center">{product.Name}</p>
+                <p class="slds-align_absolute-center">MSRP:&nbsp;
+                    <lightning-formatted-number format-style="currency" currency-code="USD" value={product.Price__c}
+                        class="price" maximum-fraction-digits="0"></lightning-formatted-number>
+                </p>
+            </div>
+        </div>
+    </a>
+    </div>
+
+</template>

@@ -1,0 +1,10 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    background: rgb(243, 242, 242);
+}
+
+c-product_tile {
+    min-width: 200px;
+    flex: 1;
+}

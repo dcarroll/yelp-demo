@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <c:order_builder></c:order_builder>
+
+</aura:component>	
