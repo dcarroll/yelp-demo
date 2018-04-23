@@ -22,6 +22,12 @@ export default class ProductFilter extends Element {
     resetHandler() {
         this.searchKey = '';
         this.maxPrice = 10000;
+        this.aluminum = true;
+        this.carbon = true;
+        this.commuter = true;
+        this.mountain = true;
+        this.men = true;
+        this.women = true;
         this.fireFilterChangeEvent();
     }
 
