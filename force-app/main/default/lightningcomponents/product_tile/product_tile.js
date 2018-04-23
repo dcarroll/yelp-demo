@@ -6,7 +6,6 @@ export default class ProductTile extends Element {
     @api product;
 
     productSelectedHandler() {
-        //window.dispatchEvent(new CustomEvent('productSelected', { detail: this.product }));
         pubsub.fire("productSelected", this.product);
     }
 
