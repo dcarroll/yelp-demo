@@ -1,15 +1,24 @@
 import { Element, api } from 'engine';
 
 export default class OrderItem extends Element {
-    @api orderitem;
+    @api orderItem;
 
-    @api qtyS;
+    qtyChangeHandler(event) {
+        const field = event.target.id;
+        const qty = event.detail.value === '' ? 0 : parseInt(event.detail.value, 10);
 
-    @api qtyM;
+        const eventDetail = {
+            orderItem: this.orderItem,
+            change: {
+                field: field,
+                oldValue: this.orderItem[field],
+                newValue: qty,
+            },
+        };
 
-    @api qtyL;
+        this.orderItem[field] = qty;
 
-    @api qtyXL;
-
-    qtyChangeHandler() {}
+        const qtyChangeEvent = new CustomEvent('qtychange', { detail: eventDetail, bubbles: true });
+        this.dispatchEvent(qtyChangeEvent);
+    }
 }

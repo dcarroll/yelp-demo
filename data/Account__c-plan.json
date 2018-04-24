@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "Account__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Account__cs.json"
+        ]
+    }
+]

@@ -3,12 +3,11 @@ import { Element, api, track } from 'engine';
 // import { createRecordInputFromRecord } from "lightning-lds-records";
 
 export default class OrderBuilder extends Element {
-
     @api orderId;
 
     @api orderItems = [];
 
-    @track createStatus
+    @track createStatus;
 
     @track orderTotal = 0;
 
@@ -19,7 +18,7 @@ export default class OrderBuilder extends Element {
 
     dropHandler(event) {
         event.preventDefault();
-        let product = JSON.parse(event.dataTransfer.getData("product"));
+        let product = JSON.parse(event.dataTransfer.getData('product'));
         let orderItem = {
             orderId: this.orderId,
             productId: product.Id,
@@ -30,12 +29,11 @@ export default class OrderBuilder extends Element {
             name: product.Name,
             price: product.Price__c,
             category: product.Category__c,
-            pictureURL: product.Picture_URL__c
+            pictureURL: product.Picture_URL__c,
         };
         this.orderItems.push(orderItem);
         this.totalItems = this.totalItems + 4;
         this.orderTotal = this.orderTotal + 4 * product.Price__c;
-
 
         // const recordInput = createRecordInputFromRecord(this.defaults.data.record);
         // let overrides = {
@@ -61,11 +59,16 @@ export default class OrderBuilder extends Element {
         //     .catch(err => {
         //         this.createStatus = 'Account record creation failed. ' + err.message;
         //     });
-
     }
 
     dragOverHandler(event) {
         event.preventDefault();
     }
 
+    qtyChangeHandler(event) {
+        const orderItem = event.detail.orderItem;
+        const change = event.detail.change;
+        this.totalItems = this.totalItems - change.oldValue + change.newValue;
+        this.orderTotal = this.orderTotal + (change.newValue - change.oldValue) * orderItem.price;
+    }
 }

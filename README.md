@@ -2,8 +2,6 @@
 
 ## Installation Instructions
 
-1.
-
 1. Authenticate with your hub org (if not already done):
     ```
     sfdx force:auth:web:login -d -a myhuborg
@@ -38,6 +36,7 @@
 1. Load sample data:
     ```
     sfdx force:data:tree:import --plan ./data/Product__c-plan.json
+    sfdx force:data:tree:import --plan ./data/Account__c-plan.json
     ```
 
 1. Open the scratch org:
