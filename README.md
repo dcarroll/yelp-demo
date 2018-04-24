@@ -2,8 +2,6 @@
 
 ## Installation Instructions
 
-1.
-
 1. Authenticate with your hub org (if not already done):
     ```
     sfdx force:auth:web:login -d -a myhuborg
