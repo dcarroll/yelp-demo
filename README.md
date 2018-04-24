@@ -38,6 +38,7 @@
 1. Load sample data:
     ```
     sfdx force:data:tree:import --plan ./data/Product__c-plan.json
+    sfdx force:data:tree:import --plan ./data/Account__c-plan.json
     ```
 
 1. Open the scratch org:
