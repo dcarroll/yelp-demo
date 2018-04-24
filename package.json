@@ -37,8 +37,7 @@
     "lts-jest": "0.0.12",
     "prettier": "1.10.2",
     "semver": "^5.5.0",
-    "shelljs": "^0.8.1",
-    "webdriverio": "^4.9.11"
+    "shelljs": "^0.8.1"
   },
   "husky": {
     "hooks": {

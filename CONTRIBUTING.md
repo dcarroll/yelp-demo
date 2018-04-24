@@ -52,8 +52,6 @@ Changes must pass functional unit tests and visual regression tests. Visual regr
 npm run test
 ```
 
-See [this document](ui-tests/README.md) for how to understand and fix visual regression failures.
-
 ## Git Workflow
 
 The process of submitting a pull request is straightforward, and
@@ -68,7 +66,7 @@ follows the same pattern each time:
 ### Clone the Repository
 
 ```bash
-git clone git@github.com:forcedotcom/sfdx-lwc-samples.git
+git clone git@github.com:forcedotcom/ebikes-lwc.git
 ```
 
 ### Create a Feature Branch
@@ -89,14 +87,14 @@ git commit
 git push origin HEAD
 ```
 
-Commit your changes using a descriptive commit message. The above commands 
-commit the files into your feature branch. Keep pushing new changes into the 
+Commit your changes using a descriptive commit message. The above commands
+commit the files into your feature branch. Keep pushing new changes into the
 same branch until you're ready to create a pull request.
 
 ### Merge
 
-Sometimes your feature branch gets stale with respect to the master branch, 
-and requires newer commits on master to be merged into your branch. The 
+Sometimes your feature branch gets stale with respect to the master branch,
+and requires newer commits on master to be merged into your branch. The
 following steps can help:
 
 ```bash
@@ -106,12 +104,12 @@ git checkout <feature-branch>
 git merge master
 ```
 
-Don't worry about creating extra merge commits in your pull request. When your 
-pull request is merged, all commits on the branch are consolidated down to a 
+Don't worry about creating extra merge commits in your pull request. When your
+pull request is merged, all commits on the branch are consolidated down to a
 single commit.
 
 ### Create a Pull Request
 
 If you've never created a pull request before, follow [these
 instructions](https://help.github.com/articles/creating-a-pull-request/).
-Pull request examples can be found [here](https://github.com/forcedotcom/sfdx-lwc-samples/pulls).
+Pull request examples can be found [here](https://github.com/forcedotcom/ebikes-lwc/pulls).
