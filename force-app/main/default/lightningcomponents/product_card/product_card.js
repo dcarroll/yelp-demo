@@ -1,4 +1,4 @@
-import { Element, api, track, wire } from 'engine';
+import { Element, track, wire } from 'engine';
 import pubsub from 'c-pubsub';
 
 const fields = [
@@ -7,12 +7,11 @@ const fields = [
     'Product__c.Gender__c',
     'Product__c.Category__c',
     'Product__c.Material__c',
-    'Product__c.Price__c', 
-    'Product__c.Picture_URL__c'
+    'Product__c.Price__c',
+    'Product__c.Picture_URL__c',
 ];
 
 export default class ProductCard extends Element {
-
     @track recordId;
 
     @track product;
@@ -20,18 +19,16 @@ export default class ProductCard extends Element {
     @wire('record', { recordId: '$recordId', fields })
     loadProduct(error, data) {
         if (error) {
-          alert('Error retrieving data');
-          console.log(error);
+            // TODO console.log(error);
         } else {
             this.product = data.fields;
         }
     }
 
-    constructor() {
-        super();
+    connectedCallback() {
         pubsub.register('productSelected', this.productSelectedHandler.bind(this));
     }
-    
+
     disconnectedCallback() {
         // TODO: unregister event listener
     }
@@ -41,7 +38,6 @@ export default class ProductCard extends Element {
     }
 
     get header() {
-        return this.product ? this.product.Name.value : "";
+        return this.product ? this.product.Name.value : '';
     }
-
 }

@@ -2,7 +2,7 @@
 
     <div class="slds-card content slds-p-around_x-small">
         <template for:each={selectedProducts} for:item="product">
-            <c-product_tile product={product} class="slds-m-around_x-small"></c-product_tile>
+            <c-product_tile key={product.Id} product={product} class="slds-m-around_x-small"></c-product_tile>
         </template>
     </div>
 

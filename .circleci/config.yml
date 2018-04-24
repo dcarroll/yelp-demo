@@ -1,0 +1,50 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.4-browsers
+
+    environment:
+      SFDX_AUTOUPDATE_DISABLE: true
+      SFDX_USE_GENERIC_UNIX_KEYCHAIN: true
+      SFDX_DOMAIN_RETRY: 300
+
+    steps:
+      - checkout
+      - run:
+          name: Install Salesforce DX
+          command: |
+              sudo npm install -g sfdx-cli
+      - run:
+          name: Install package dependencies
+          command: |
+              npm install
+      - run:
+          name: Lint
+          command: |
+              npm run lint
+      - run:
+          name: Unit Test
+          command: |
+              npm run test:unit
+      - run:
+          name: Create Scratch Org
+          command: |
+              openssl aes-256-cbc -d -in assets/server.key.enc -out assets/server.key -k $KEY
+              sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
+              sfdx force:org:create -s -f config/project-scratch-def.json -a travisciorg
+      - run:
+          name: Remove Server Key
+          when: always
+          command: |
+              rm -f assets/server.key
+      - run:
+          name: Push Source
+          command: |
+             sfdx force:source:push -u travisciorg
+      - run:
+          name: Clean Up
+          when: always
+          command: |
+              sfdx force:org:delete -u travisciorg -p || echo 'No org to delete!'
+
