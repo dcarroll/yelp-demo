@@ -1,7 +1,6 @@
 import { Element, api } from 'engine';
 
 export default class OrderItem extends Element {
-
     @api orderitem;
 
     @api qtyS;
@@ -12,8 +11,5 @@ export default class OrderItem extends Element {
 
     @api qtyXL;
 
-    qtyChangeHandler(event) {
-
-    }
-
+    qtyChangeHandler() {}
 }

@@ -2,6 +2,8 @@
 
 ## Installation Instructions
 
+1.
+
 1. Authenticate with your hub org (if not already done):
     ```
     sfdx force:auth:web:login -d -a myhuborg
@@ -11,6 +13,11 @@
     ```
     git clone https://github.com/forcedotcom/ebikes-lwc
     cd ebikes-lwc
+    ```
+
+1. Install dependencies:
+    ```
+    npm install
     ```
 
 1. Create a scratch org and provide it with an alias (nto):
