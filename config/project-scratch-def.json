@@ -1,7 +1,6 @@
 {
     "orgName": "LWC Examples & Playground",
     "edition": "Developer",
-    "instance": "cs95",
     "features": ["LightningWebComponents"],
     "orgPreferences" : {
         "enabled": ["S1DesktopEnabled"],
