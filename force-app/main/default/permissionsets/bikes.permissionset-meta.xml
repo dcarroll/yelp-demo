@@ -4,6 +4,10 @@
         <application>oZo_bicycles</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>oZo_bicycles_exercise</application>
+        <visible>true</visible>
+    </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
         <field>Order_Item__c.Product__c</field>
@@ -127,6 +131,10 @@
     </tabSettings>
     <tabSettings>
         <tab>Product_Explorer</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Product_Explorer_Exercise</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
