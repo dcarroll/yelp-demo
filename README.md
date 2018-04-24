@@ -10,7 +10,7 @@
 1. Clone the repository:
     ```
     git clone https://github.com/forcedotcom/ebikes-lwc
-    cd northern-trail
+    cd ebikes-lwc
     ```
 
 1. Create a scratch org and provide it with an alias (nto):
