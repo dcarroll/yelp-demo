@@ -16,5 +16,4 @@
     <tabs>Product__c</tabs>
     <tabs>Order__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Northern_Trail_UtilityBar</utilityBar>
 </CustomApplication>
