@@ -71,4 +71,12 @@ export default class OrderBuilder extends Element {
         this.totalItems = this.totalItems - change.oldValue + change.newValue;
         this.orderTotal = this.orderTotal + (change.newValue - change.oldValue) * orderItem.price;
     }
+
+    deleteHandler(event) {
+        const orderItem = event.detail;
+        this.totalItems = this.totalItems - (orderItem.qtyS + orderItem.qtyM + orderItem.qtyL + orderItem.qtyXL);
+        this.orderTotal =
+            this.orderTotal - (orderItem.qtyS + orderItem.qtyM + orderItem.qtyL + orderItem.qtyXL) * orderItem.price;
+        this.orderItems.splice(this.orderItems.findIndex(item => orderItem === item), 1);
+    }
 }

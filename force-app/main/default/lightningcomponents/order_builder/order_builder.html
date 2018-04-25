@@ -8,7 +8,8 @@
         </header>
         <div class="drop-zone slds-p-around_x-small" ondrop={dropHandler} ondragover={dragOverHandler} ondragleave={dragLeaveHandler}>
             <template for:each={orderItems} for:item="orderItem">
-                <c-order_item_tile key={orderItem} order-item={orderItem} class="slds-m-around_x-small" onqtychange={qtyChangeHandler}></c-order_item_tile>
+                <c-order_item_tile key={orderItem} order-item={orderItem} class="slds-m-around_x-small" 
+                    onqtychange={qtyChangeHandler} ondelete={deleteHandler}></c-order_item_tile>
             </template>
         </div>
     </div>

@@ -1,5 +1,4 @@
 .content {
-    cursor: -webkit-grab;
     padding: 8px;
     background-color: #FFFFFF;
 }
@@ -8,14 +7,9 @@ a {
 	color: inherit;
 }
 
-.content:active {
-    cursor: -webkit-grabbing;
-}
-
 img.product {
-    /* height: auto; */
-    /* min-height: 50px; */
     height: 120px;
+    pointer-events: none;
 }
 
 img {
@@ -25,8 +19,4 @@ img {
 .title {
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.price {
-    /* color: #FF6600; */
 }

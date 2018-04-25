@@ -21,4 +21,9 @@ export default class OrderItem extends Element {
         const qtyChangeEvent = new CustomEvent('qtychange', { detail: eventDetail, bubbles: true });
         this.dispatchEvent(qtyChangeEvent);
     }
+
+    deleteHandler() {
+        const deleteEvent = new CustomEvent('delete', { detail: this.orderItem, bubbles: true });
+        this.dispatchEvent(deleteEvent);
+    }
 }
