@@ -18,12 +18,22 @@ export default class OrderItem extends Element {
 
         this.orderItem[field] = qty;
 
-        const qtyChangeEvent = new CustomEvent('qtychange', { detail: eventDetail, bubbles: true });
+        const qtyChangeEvent = new CustomEvent('qtychange', {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            detail: eventDetail,
+        });
         this.dispatchEvent(qtyChangeEvent);
     }
 
     deleteHandler() {
-        const deleteEvent = new CustomEvent('delete', { detail: this.orderItem, bubbles: true });
+        const deleteEvent = new CustomEvent('delete', {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            detail: this.orderItem,
+        });
         this.dispatchEvent(deleteEvent);
     }
 }
