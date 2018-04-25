@@ -5,7 +5,7 @@ import { Element, api, track } from 'engine';
 export default class OrderBuilder extends Element {
     @api orderId;
 
-    @api orderItems = [];
+    @track orderItems = [];
 
     @track createStatus;
 
@@ -31,7 +31,8 @@ export default class OrderBuilder extends Element {
             category: product.Category__c,
             pictureURL: product.Picture_URL__c,
         };
-        this.orderItems.push(orderItem);
+        this.orderItems = [...this.orderItems, orderItem];
+
         this.totalItems = this.totalItems + 4;
         this.orderTotal = this.orderTotal + 4 * product.Price__c;
 
@@ -70,5 +71,13 @@ export default class OrderBuilder extends Element {
         const change = event.detail.change;
         this.totalItems = this.totalItems - change.oldValue + change.newValue;
         this.orderTotal = this.orderTotal + (change.newValue - change.oldValue) * orderItem.price;
+    }
+
+    deleteHandler(event) {
+        const orderItem = event.detail;
+        this.totalItems = this.totalItems - (orderItem.qtyS + orderItem.qtyM + orderItem.qtyL + orderItem.qtyXL);
+        this.orderTotal =
+            this.orderTotal - (orderItem.qtyS + orderItem.qtyM + orderItem.qtyL + orderItem.qtyXL) * orderItem.price;
+        this.orderItems = this.orderItems.filter(item => item !== orderItem);
     }
 }

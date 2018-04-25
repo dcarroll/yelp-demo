@@ -1,6 +1,6 @@
 <template>
 
-    <div ondragstart={dragStart}>
+    <div draggable="true" ondragstart={dragStart}>
         <a onclick={productSelectedHandler}>
             <div class="content">
                 <img src={product.Picture_URL__c} class="product slds-align_absolute-center"></img>
