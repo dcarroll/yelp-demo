@@ -24,6 +24,9 @@
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>orderBuilderWrapper</componentName>
+        </componentInstances>
         <mode>Replace</mode>
         <name>detailTabContent</name>
         <type>Facet</type>
@@ -66,9 +69,6 @@
                 <value>maintabs</value>
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentName>orderBuilderWrapper</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>main</name>

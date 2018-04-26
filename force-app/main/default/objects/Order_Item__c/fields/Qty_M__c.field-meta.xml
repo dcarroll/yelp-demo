@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Qty__c</fullName>
+    <fullName>Qty_M__c</fullName>
+    <defaultValue>1</defaultValue>
     <externalId>false</externalId>
-    <label>Qty</label>
+    <label>Qty M</label>
     <precision>5</precision>
     <required>false</required>
     <scale>0</scale>

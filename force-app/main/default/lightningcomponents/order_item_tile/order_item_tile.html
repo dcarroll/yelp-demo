@@ -1,22 +1,24 @@
 <template>
 
+    <template if:true={orderItem}>
     <div class="content">
-        <img src={orderItem.pictureURL} class="product slds-align_absolute-center"></img>
+        <img src={product.Picture_URL__c.value} class="product slds-align_absolute-center"></img>
         <div>
-            <p class="title slds-align_absolute-center">{orderItem.name}</p>
+            <p class="title slds-align_absolute-center">{product.Name.value}</p>
             <p class="slds-align_absolute-center">MSRP:&nbsp;
-                <lightning-formatted-number format-style="currency" currency-code="USD" value={orderItem.price} class="price" maximum-fraction-digits="0"></lightning-formatted-number>
+                <lightning-formatted-number format-style="currency" currency-code="USD" value={product.Price__c.value} class="price" maximum-fraction-digits="0"></lightning-formatted-number>
             </p>
             <p class="slds-align_absolute-center">
-                <lightning-input id="qtyS" type="number" label="S:" value={orderItem.qtyS} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
-                <lightning-input id="qtyM" type="number" label="M:" value={orderItem.qtyM} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
-                <lightning-input id="qtyL" type="number" label="L:" value={orderItem.qtyL} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
-                <lightning-input id="qtyXL" type="number" label="XL:" value={orderItem.qtyXL} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input data-field="Qty_S__c" type="number" label="S:" value={orderItem.Qty_S__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input data-field="Qty_M__c" type="number" label="M:" value={orderItem.Qty_M__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input data-filed="Qty_L__c" type="number" label="L:" value={orderItem.Qty_L__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
+                <lightning-input data-field="Qty_XL__c" type="number" label="XL:" value={orderItem.Qty_XL__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
             </p>
             <p class="slds-align_absolute-center">
                 <lightning-button-icon icon-name="utility:delete" variant="bare" size="medium" class="toggle" onclick={deleteHandler}></lightning-button-icon>
             </p>
         </div>
     </div>
+    </template>
 
 </template>

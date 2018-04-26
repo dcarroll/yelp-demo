@@ -1,15 +1,15 @@
 <template>
 
-    <div class="slds-card">
+    <div>
         {createStatus}
-        {orderId}
         <header class="slds-text-heading_small">
             Order Total: <lightning-formatted-number format-style="currency" currency-code="USD" value={orderTotal} class="order-total"></lightning-formatted-number>
             Total Items: {totalItems}
         </header>
         <div class="drop-zone slds-p-around_x-small" ondrop={dropHandler} ondragover={dragOverHandler} ondragleave={dragLeaveHandler}>
             <template for:each={orderItems} for:item="orderItem">
-                <c-order_item_tile key={orderItem} order-item={orderItem} class="slds-m-around_x-small" 
+                {orderItemId}
+                <c-order_item_tile key={orderItem} order-item-id={orderItem.id} class="slds-m-around_x-small" 
                     onqtychange={qtyChangeHandler} ondelete={deleteHandler}></c-order_item_tile>
             </template>
         </div>
