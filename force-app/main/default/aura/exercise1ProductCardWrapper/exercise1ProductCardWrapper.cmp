@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <c:excercise_1_product_card></c:excercise_1_product_card>
+
+</aura:component>	
