@@ -18,33 +18,15 @@ const fields = [
 ];
 
 export default class OrderItem extends Element {
-    /**
-     * Setter for recordId property. Resets UI and triggers @wire reload.
-     * @param {String} value new record id.
-     */
-    @api
-    set recordId(value) {
-        this.recordIds = value ? [value] : undefined;
-    }
-
-    /** Getter for recordId property. */
-    @api
-    get recordId() {
-        return this.recordIds ? this.recordIds : undefined;
-    }
-
-    /** Ids of records to load. */
-    recordIds;
-
+    @api recordId;
     @track orderItem;
-
     @track product;
 
     overrides = {
         fields: {},
     };
 
-    @wire(getRecord, { recordIds: '$recordIds', fields })
+    @wire(getRecord, { recordId: '$recordId', fields })
     wiredRecord(error, data) {
         if (error) {
             // TODO handle error
