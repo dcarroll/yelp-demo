@@ -1,6 +1,5 @@
 import { Element, api, track, wire } from 'engine';
-import { createRecord } from 'lightning-lds-records';
-import { createRecordInputFromRecord } from 'lightning-lds-records';
+import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
 
 export default class OrderBuilder extends Element {
     @api orderId;
@@ -11,7 +10,7 @@ export default class OrderBuilder extends Element {
 
     @track totalItems = 0;
 
-    @wire('record-create-defaults', { apiName: 'Order_Item__c' })
+    @wire(getRecordCreateDefaults, { apiName: 'Order_Item__c' })
     defaults;
 
     dropHandler(event) {
@@ -24,8 +23,8 @@ export default class OrderBuilder extends Element {
                 Product__c: product.Id,
             },
         };
-        const record = Object.assign(recordInput, overrides);
-        createRecord(record)
+        Object.assign(recordInput, overrides);
+        createRecord(recordInput)
             .then(newRecord => {
                 this.orderItems = [...this.orderItems, newRecord];
                 const orderItem = newRecord.fields;
@@ -46,14 +45,23 @@ export default class OrderBuilder extends Element {
         event.preventDefault();
     }
 
-    qtyChangeHandler(event) {
-        const product = event.detail.orderItem.Product__r.value.fields;
-        const change = event.detail.change;
-        this.totalItems = this.totalItems - change.oldValue + change.newValue;
-        this.orderTotal = this.orderTotal + (change.newValue - change.oldValue) * product.Price__c.value;
+    orderItemChangeHandler(event) {
+        const originalFields = event.detail.recordInput.fields;
+        const changedFields = event.detail.overrides.fields;
+        let countDiff = 0;
+        let amountDiff = 0;
+        Object.keys(changedFields).forEach(fieldName => {
+            countDiff = countDiff + changedFields[fieldName] - originalFields[fieldName];
+            amountDiff =
+                amountDiff +
+                (changedFields[fieldName] - originalFields[fieldName]) *
+                    event.detail.orderItem.fields.Product__r.value.fields.Price__c.value;
+        });
+        this.totalItems = this.totalItems + countDiff;
+        this.orderTotal = this.orderTotal + amountDiff;
     }
 
-    deleteHandler(event) {
+    orderItemDeleteHandler(event) {
         const orderItem = event.detail;
         const product = orderItem.Product__r.value.fields;
         const orderItemQty =

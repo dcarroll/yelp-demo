@@ -1,4 +1,5 @@
-import { Element, track, wire } from 'engine';
+import { Element, track, wire, api } from 'engine';
+import { getRecord } from 'lightning-ui-api-record';
 import pubsub from 'c-pubsub';
 
 const fields = [
@@ -12,14 +13,30 @@ const fields = [
 ];
 
 export default class ProductCard extends Element {
-    @track recordId;
+    /**
+     * Setter for recordId property. Resets UI and triggers @wire reload.
+     * @param {String} value new record id.
+     */
+    @api
+    set recordId(value) {
+        this.recordIds = value ? [value] : undefined;
+    }
+
+    /** Getter for recordId property. */
+    @api
+    get recordId() {
+        return this.recordIds ? this.recordIds[0] : undefined;
+    }
+
+    /** Ids of records to load. */
+    recordIds;
 
     @track product;
 
-    @wire('record', { recordId: '$recordId', fields })
-    loadProduct(error, data) {
+    @wire(getRecord, { recordIds: '$recordIds', fields: fields })
+    wiredRecord(error, data) {
         if (error) {
-            // TODO console.log(error);
+            // TODO handle error
         } else {
             this.product = data.fields;
         }

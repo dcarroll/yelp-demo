@@ -9,7 +9,7 @@ a {
 
 img.product {
     height: 120px;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 img {
