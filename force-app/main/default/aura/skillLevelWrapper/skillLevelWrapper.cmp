@@ -2,4 +2,4 @@
 
     <c:skill_level recordId="{!v.recordId}"></c:skill_level>
 
-</aura:component>	
+</aura:component>
