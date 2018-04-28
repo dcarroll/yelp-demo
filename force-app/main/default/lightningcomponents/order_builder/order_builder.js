@@ -62,7 +62,7 @@ export default class OrderBuilder extends Element {
     }
 
     orderItemDeleteHandler(event) {
-        const orderItem = event.detail;
+        const orderItem = event.detail.fields;
         const product = orderItem.Product__r.value.fields;
         const orderItemQty =
             orderItem.Qty_S__c.value + orderItem.Qty_M__c.value + orderItem.Qty_L__c.value + orderItem.Qty_XL__c.value;
