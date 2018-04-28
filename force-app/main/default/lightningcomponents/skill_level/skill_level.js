@@ -8,10 +8,10 @@ export default class SkillLevel extends Element {
     @track product;
 
     @wire(getRecord, { recordId: '$recordId', fields: fields })
-    wiredRecord(error, data) {
+    wiredRecord({ error, data }) {
         if (error) {
             // TODO handle error
-        } else {
+        } else if (data) {
             this.product = data.fields;
         }
     }

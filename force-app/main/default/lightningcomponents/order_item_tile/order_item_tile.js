@@ -17,7 +17,7 @@ const fields = [
     'Order_Item__c.Product__r.Picture_URL__c',
 ];
 
-export default class OrderItem extends Element {
+export default class OrderItemTile extends Element {
     @api recordId;
     @track orderItem;
     @track product;
@@ -27,10 +27,10 @@ export default class OrderItem extends Element {
     };
 
     @wire(getRecord, { recordId: '$recordId', fields })
-    wiredRecord(error, data) {
+    wiredRecord({ error, data }) {
         if (error) {
             // TODO handle error
-        } else {
+        } else if (data) {
             this.orderItem = data;
             this.product = data.fields.Product__r.value;
         }

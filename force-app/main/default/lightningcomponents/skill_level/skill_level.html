@@ -1,7 +1,9 @@
 <template>
 
-    <template if:true={product}>
-        {product.Name}
-    </template>
+    <div class="slds-card">
+        <template if:true={product}>
+            {product.Name.value}
+        </template>
+    </div>
 
 </template>
