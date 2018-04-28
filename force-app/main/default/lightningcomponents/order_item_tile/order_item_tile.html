@@ -6,17 +6,19 @@
         <div>
             <p class="title slds-align_absolute-center">{product.fields.Name.value}</p>
             <p class="slds-align_absolute-center">MSRP:&nbsp;
-                <lightning-formatted-number format-style="currency" currency-code="USD" value={product.fields.Price__c.value} class="price" maximum-fraction-digits="0"></lightning-formatted-number>
+                <lightning-formatted-number format-style="currency" currency-code="USD" value={product.fields.MSRP__c.value} class="price" maximum-fraction-digits="0"></lightning-formatted-number>
             </p>
             <p class="slds-align_absolute-center">
+                <lightning-input data-field="Price__c" type="number" label="Price:" value={orderItem.fields.Price__c.value} step="1" onchange={qtyChangeHandler} class="price"></lightning-input>
                 <lightning-input data-field="Qty_S__c" type="number" label="S:" value={orderItem.fields.Qty_S__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
                 <lightning-input data-field="Qty_M__c" type="number" label="M:" value={orderItem.fields.Qty_M__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
                 <lightning-input data-field="Qty_L__c" type="number" label="L:" value={orderItem.fields.Qty_L__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
-                <lightning-input data-field="Qty_XL__c" type="number" label="XL:" value={orderItem.fields.Qty_XL__c.value} step="1" onchange={qtyChangeHandler} class="qty"></lightning-input>
             </p>
             <p class="action-buttons slds-align_absolute-center">
                 <lightning-button-icon icon-name="utility:delete" variant="bare" size="large" class="slds-p-around_x-small" onclick={deleteHandler}></lightning-button-icon>
-                <lightning-button-icon icon-name="utility:check" variant="bare" size="large" class="slds-p-around_x-small" onclick={saveHandler}></lightning-button-icon>
+                <template if:true={isModified}>
+                    <lightning-button-icon icon-name="utility:check" variant="bare" size="large" class="slds-p-around_x-small" onclick={saveHandler}></lightning-button-icon>
+                </template>
             </p>
         </div>
     </div>

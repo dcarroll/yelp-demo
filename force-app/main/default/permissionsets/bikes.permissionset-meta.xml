@@ -10,6 +10,11 @@
     </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Order_Item__c.Price__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Order_Item__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -26,11 +31,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Order_Item__c.Qty_S__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Order_Item__c.Qty_XL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -70,6 +70,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Product__c.MSRP__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product__c.Material__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -81,11 +86,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Product__c.Picture_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Product__c.Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

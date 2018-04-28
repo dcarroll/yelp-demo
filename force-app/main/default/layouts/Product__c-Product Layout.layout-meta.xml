@@ -12,10 +12,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Price__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Description__c</field>
             </layoutItems>
             <layoutItems>
@@ -57,6 +53,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Rear_Brakes__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MSRP__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

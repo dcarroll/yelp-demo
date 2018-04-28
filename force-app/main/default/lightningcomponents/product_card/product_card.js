@@ -8,7 +8,7 @@ const fields = [
     'Product__c.Gender__c',
     'Product__c.Category__c',
     'Product__c.Material__c',
-    'Product__c.Price__c',
+    'Product__c.MSRP__c',
     'Product__c.Picture_URL__c',
 ];
 

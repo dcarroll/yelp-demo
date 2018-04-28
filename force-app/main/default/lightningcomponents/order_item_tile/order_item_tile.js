@@ -11,9 +11,9 @@ const fields = [
     'Order_Item__c.Qty_S__c',
     'Order_Item__c.Qty_M__c',
     'Order_Item__c.Qty_L__c',
-    'Order_Item__c.Qty_XL__c',
+    'Order_Item__c.Price__c',
     'Order_Item__c.Product__r.Name',
-    'Order_Item__c.Product__r.Price__c',
+    'Order_Item__c.Product__r.MSRP__c',
     'Order_Item__c.Product__r.Picture_URL__c',
 ];
 
@@ -21,6 +21,7 @@ export default class OrderItemTile extends Element {
     @api recordId;
     @track orderItem;
     @track product;
+    @track isModified = false;
 
     overrides = {
         fields: {},
@@ -37,6 +38,7 @@ export default class OrderItemTile extends Element {
     }
 
     qtyChangeHandler(event) {
+        this.isModified = true;
         const field = event.target.dataset.field;
         const qty = event.detail.value === '' ? 0 : parseInt(event.detail.value, 10);
         this.overrides.fields[field] = qty;
@@ -71,6 +73,7 @@ export default class OrderItemTile extends Element {
                 });
                 this.dispatchEvent(orderItemChangeEvent);
                 this.overrides = { fields: {} };
+                this.isModified = false;
             })
             .catch(err => {
                 this.updateStatus = 'Order item record update failed. ' + err;
