@@ -1,83 +1,66 @@
-import { Element, api, track } from 'engine';
-// import { createRecord } from "lightning-lds-records";
-// import { createRecordInputFromRecord } from "lightning-lds-records";
+import { Element, api, track, wire } from 'engine';
+import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
 
 export default class OrderBuilder extends Element {
     @api orderId;
 
     @track orderItems = [];
 
-    @track createStatus;
+    @track orderTotalAmount = 0;
 
-    @track orderTotal = 0;
+    @track orderTotalQty = 0;
 
-    @track totalItems = 0;
-
-    // @wire('record-create-defaults', { apiName: 'Order_Item__c' })
-    // defaults;
+    @wire(getRecordCreateDefaults, { apiName: 'Order_Item__c' })
+    defaults;
 
     dropHandler(event) {
         event.preventDefault();
-        let product = JSON.parse(event.dataTransfer.getData('product'));
-        let orderItem = {
-            orderId: this.orderId,
-            productId: product.Id,
-            qtyS: 1,
-            qtyM: 1,
-            qtyL: 1,
-            qtyXL: 1,
-            name: product.Name,
-            price: product.Price__c,
-            category: product.Category__c,
-            pictureURL: product.Picture_URL__c,
+        const product = JSON.parse(event.dataTransfer.getData('product'));
+        const recordInput = createRecordInputFromRecord(this.defaults.data.record);
+        const overrides = {
+            fields: {
+                Order__c: this.orderId,
+                Product__c: product.Id,
+                Price__c: Math.round(product.MSRP__c * 0.6), // TODO: get discount from Account object
+            },
         };
-        this.orderItems = [...this.orderItems, orderItem];
-
-        this.totalItems = this.totalItems + 4;
-        this.orderTotal = this.orderTotal + 4 * product.Price__c;
-
-        // const recordInput = createRecordInputFromRecord(this.defaults.data.record);
-        // let overrides = {
-        //     "fields": {
-        //         "Order__c": {
-        //             "value": "a01R000000CLevFIAT"
-        //         },
-        //         "Product__c": {
-        //             "value": product.Id
-        //         },
-        //         "Qty__c": {
-        //             "value": 1
-        //         }
-        //     }
-        // };
-
-        // const record = Object.assign(recordInput, overrides);
-        // this.createStatus = 'Creating Account record.';
-        // createRecord(record)
-        //     .then(newRecord => {
-        //         this.createStatus = `Account record created. Id is ${newRecord.id}.`;
-        //     })
-        //     .catch(err => {
-        //         this.createStatus = 'Account record creation failed. ' + err.message;
-        //     });
+        Object.assign(recordInput, overrides);
+        createRecord(recordInput)
+            .then(newRecord => {
+                this.orderItems = [...this.orderItems, newRecord];
+                const orderItem = newRecord.fields;
+                const orderItemQty = orderItem.Qty_S__c.value + orderItem.Qty_M__c.value + orderItem.Qty_L__c.value;
+                this.orderTotalQty = this.orderTotalQty + orderItemQty;
+                this.orderTotalAmount = this.orderTotalAmount + orderItemQty * orderItem.Price__c.value;
+            })
+            .catch((/*error*/) => {
+                // TODO handle error
+            });
     }
 
     dragOverHandler(event) {
         event.preventDefault();
     }
 
-    qtyChangeHandler(event) {
-        const orderItem = event.detail.orderItem;
-        const change = event.detail.change;
-        this.totalItems = this.totalItems - change.oldValue + change.newValue;
-        this.orderTotal = this.orderTotal + (change.newValue - change.oldValue) * orderItem.price;
+    orderItemChangeHandler(event) {
+        const originalValues = event.detail.recordInput.fields;
+        const newValues = event.detail.overrides.fields;
+        const newPrice = newValues.Price__c || originalValues.Price__c;
+        const newOrderItemQty =
+            (newValues.Qty_S__c || originalValues.Qty_S__c) +
+            (newValues.Qty_M__c || originalValues.Qty_M__c) +
+            (newValues.Qty_L__c || originalValues.Qty_L__c);
+        const originalOrderItemQty = originalValues.Qty_S__c + originalValues.Qty_M__c + originalValues.Qty_L__c;
+        this.orderTotalQty = this.orderTotalQty + newOrderItemQty - originalOrderItemQty;
+        this.orderTotalAmount =
+            this.orderTotalAmount + newOrderItemQty * newPrice - originalOrderItemQty * originalValues.Price__c;
     }
 
-    deleteHandler(event) {
-        const orderItem = event.detail;
-        this.totalItems = this.totalItems - (orderItem.qtyS + orderItem.qtyM + orderItem.qtyL + orderItem.qtyXL);
-        this.orderTotal =
-            this.orderTotal - (orderItem.qtyS + orderItem.qtyM + orderItem.qtyL + orderItem.qtyXL) * orderItem.price;
-        this.orderItems = this.orderItems.filter(item => item !== orderItem);
+    orderItemDeleteHandler(event) {
+        const orderItem = event.detail.fields;
+        const orderItemQty = orderItem.Qty_S__c.value + orderItem.Qty_M__c.value + orderItem.Qty_L__c.value;
+        this.orderTotalQty = this.orderTotalQty - orderItemQty;
+        this.orderTotalAmount = this.orderTotalAmount - orderItemQty * orderItem.Price__c.value;
+        this.orderItems = this.orderItems.filter(item => item.id !== orderItem.Id.value);
     }
 }

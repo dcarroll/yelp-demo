@@ -55,13 +55,13 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <label>Order</label>
+    <label>Reseller Order</label>
     <nameField>
         <displayFormat>O-{00000}</displayFormat>
         <label>Order Number</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Orders</pluralLabel>
+    <pluralLabel>Reseller Orders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>

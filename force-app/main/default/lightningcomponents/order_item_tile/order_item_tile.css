@@ -17,6 +17,11 @@ img {
 }
 
 .qty {
-    width: 70px;
+    width: 60px;
+    margin: 0 4px;
+}
+
+.price {
+    width: 86px;
     margin: 0 4px;
 }
