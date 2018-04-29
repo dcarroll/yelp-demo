@@ -26,14 +26,15 @@ export default class ProductCard extends Element {
     }
 
     connectedCallback() {
-        pubsub.register('productSelected', this.productSelectedHandler.bind(this));
+        this.productSelectedCallback = this.onProductSelected.bind(this);
+        pubsub.register('productSelected', this.productSelectedCallback);
     }
 
     disconnectedCallback() {
-        // TODO: unregister event listener
+        pubsub.unregister('productSelected', this.productSelectedCallback);
     }
 
-    productSelectedHandler(product) {
+    onProductSelected(product) {
         this.recordId = product.Id;
     }
 

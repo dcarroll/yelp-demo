@@ -17,9 +17,13 @@ export default class ProductTileList extends Element {
 
     _products;
 
-    constructor() {
-        super();
-        pubsub.register('filterChange', this.onFilterChange.bind(this));
+    connectedCallback() {
+        this.filterChangeCallback = this.onFilterChange.bind(this);
+        pubsub.register('filterChange', this.filterChangeCallback);
+    }
+
+    disconnectedCallback() {
+        pubsub.unregister('filterChange', this.filterChangeCallback);
     }
 
     onFilterChange(filters) {
