@@ -3,8 +3,8 @@
     <fullName>Qty_L__c</fullName>
     <defaultValue>1</defaultValue>
     <externalId>false</externalId>
-    <label>Qty L</label>
-    <precision>5</precision>
+    <label>L</label>
+    <precision>3</precision>
     <required>false</required>
     <scale>0</scale>
     <trackTrending>false</trackTrending>
