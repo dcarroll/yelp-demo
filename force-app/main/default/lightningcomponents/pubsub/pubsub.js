@@ -1,21 +1,28 @@
-let listeners = {};
+let callbacks = {};
 
 const register = (eventName, callback) => {
-    if (!listeners[eventName]) {
-        listeners[eventName] = [];
+    if (!callbacks[eventName]) {
+        callbacks[eventName] = new Set();
     }
-    listeners[eventName].push(callback);
-} 
+    callbacks[eventName] = callbacks[eventName].add(callback);
+};
+
+const unregister = (eventName, callback) => {
+    if (callbacks[eventName]) {
+        callbacks[eventName].delete(callback);
+    }
+};
 
 const fire = (eventName, payload) => {
-    if (listeners[eventName]) {
-        listeners[eventName].forEach(callback => {
+    if (callbacks[eventName]) {
+        callbacks[eventName].forEach(callback => {
             callback(payload);
         });
     }
-} 
+};
 
 export default {
     register: register,
-    fire: fire
-}
+    unregister: unregister,
+    fire: fire,
+};
