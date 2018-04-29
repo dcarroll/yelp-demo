@@ -25,3 +25,7 @@ img {
     width: 86px;
     margin: 0 4px;
 }
+
+.form {
+    display: flex;
+}

@@ -3,9 +3,9 @@
     <fullName>Price__c</fullName>
     <externalId>false</externalId>
     <label>Price</label>
-    <precision>8</precision>
+    <precision>6</precision>
     <required>false</required>
-    <scale>2</scale>
+    <scale>0</scale>
     <trackTrending>false</trackTrending>
     <type>Currency</type>
 </CustomField>

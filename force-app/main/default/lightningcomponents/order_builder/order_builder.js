@@ -43,21 +43,15 @@ export default class OrderBuilder extends Element {
     }
 
     orderItemChangeHandler(event) {
-        const originalValues = event.detail.recordInput.fields;
-        const newValues = event.detail.overrides.fields;
-        const newPrice = newValues.Price__c || originalValues.Price__c;
-        const newOrderItemQty =
-            (newValues.Qty_S__c || originalValues.Qty_S__c) +
-            (newValues.Qty_M__c || originalValues.Qty_M__c) +
-            (newValues.Qty_L__c || originalValues.Qty_L__c);
-        const originalOrderItemQty = originalValues.Qty_S__c + originalValues.Qty_M__c + originalValues.Qty_L__c;
-        this.orderTotalQty = this.orderTotalQty + newOrderItemQty - originalOrderItemQty;
+        const originalValues = event.detail.originalValues;
+        const newValues = event.detail.newValues;
+        this.orderTotalQty = this.orderTotalQty + newValues.qty - originalValues.qty;
         this.orderTotalAmount =
-            this.orderTotalAmount + newOrderItemQty * newPrice - originalOrderItemQty * originalValues.Price__c;
+            this.orderTotalAmount + newValues.qty * newValues.price - originalValues.qty * originalValues.price;
     }
 
     orderItemDeleteHandler(event) {
-        const orderItem = event.detail.fields;
+        const orderItem = event.detail;
         const orderItemQty = orderItem.Qty_S__c.value + orderItem.Qty_M__c.value + orderItem.Qty_L__c.value;
         this.orderTotalQty = this.orderTotalQty - orderItemQty;
         this.orderTotalAmount = this.orderTotalAmount - orderItemQty * orderItem.Price__c.value;
