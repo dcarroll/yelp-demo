@@ -1,8 +1,16 @@
 <template>
 
     <div class="slds-card content slds-p-around_x-small">
-        <template for:each={selectedProducts} for:item="product">
-            <c-product_tile key={product.Id} product={product} class="slds-m-around_x-small"></c-product_tile>
+        <template if:false={isEmpty}>
+            <template for:each={selectedProducts} for:item="product">
+                <c-product_tile key={product.Id} product={product} class="slds-m-around_x-small"></c-product_tile>
+            </template>
+        </template>
+        <template if:true={isEmpty}>
+            <div class="slds-align_absolute-center placeholder">
+                <img src={logo} class="logo" />
+                <div>There are no products matching your current selection</div>
+            </div>
         </template>
     </div>
 

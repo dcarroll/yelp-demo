@@ -4,10 +4,16 @@ header {
     color: #FFFFFF;
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
+    display: flex;
+}
+
+header .right {
+    flex: 1;
+    text-align: right;
 }
 
 .order-total {
-    margin-right: 20px;
+    margin-left: 4px;
 }
 
 .drop-zone {
@@ -22,4 +28,17 @@ header {
 c-order_item_tile {
     min-width: 250px;
     flex: 1;
+}
+
+.placeholder {
+    color: #C23335;
+}
+
+.placeholder img {
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.slds-align_absolute-center {
+    flex-direction: column;
 }

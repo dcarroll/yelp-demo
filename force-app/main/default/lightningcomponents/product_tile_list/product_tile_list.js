@@ -1,5 +1,6 @@
 import { Element, api, track } from 'engine';
 import pubsub from 'c-pubsub';
+import assets from '@resource-url/bike_assets';
 
 export default class ProductTileList extends Element {
     @api
@@ -14,6 +15,8 @@ export default class ProductTileList extends Element {
     }
 
     @track selectedProducts;
+
+    @track logo = assets + '/logo.svg';
 
     _products;
 
@@ -30,14 +33,18 @@ export default class ProductTileList extends Element {
         this.selectedProducts = this.products.filter(product => {
             return (
                 product.MSRP__c <= filters.maxPrice &&
-                product.Name.indexOf(filters.searchKey) > -1 &&
+                product.Name.toLowerCase().includes(filters.searchKey.toLowerCase()) &&
                 (filters.commuter ? true : product.Category__c !== 'Commuter') &&
                 (filters.mountain ? true : product.Category__c !== 'Mountain') &&
                 (filters.aluminum ? true : product.Material__c !== 'Aluminum') &&
-                (filters.carbon ? true : product.Material__c !== 'Mountain') &&
+                (filters.carbon ? true : product.Material__c !== 'Carbon') &&
                 (filters.men ? true : product.Gender__c !== 'Men') &&
                 (filters.women ? true : product.Gender__c !== 'Women')
             );
         });
+    }
+
+    get isEmpty() {
+        return !(this.selectedProducts && this.selectedProducts.length > 0);
     }
 }

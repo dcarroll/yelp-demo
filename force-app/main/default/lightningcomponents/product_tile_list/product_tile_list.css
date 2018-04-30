@@ -8,3 +8,17 @@ c-product_tile {
     min-width: 200px;
     flex: 1;
 }
+
+.placeholder {
+    color: #C23335;
+    padding: 20px 0;
+}
+
+.placeholder img {
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.slds-align_absolute-center {
+    flex-direction: column;
+}

@@ -1,5 +1,6 @@
 .content {
-    padding: 0 4px 24px 4px;
+    padding: 0 4px 12px 4px;
+    min-height: 535px;
 }
 
 img.product {
@@ -28,14 +29,20 @@ section {
 }
 
 .placeholder {
-    text-align: center;
-    height: 250px;
-    margin-top: 150px;
-    padding: 20px;
+    color: #C23335;
+    height: 500px;
+}
+
+.placeholder img {
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.slds-align_absolute-center {
+    display: flex;
+    flex-direction: column;
 }
 
 .price {
     color: #C23335;
 }
-
-
