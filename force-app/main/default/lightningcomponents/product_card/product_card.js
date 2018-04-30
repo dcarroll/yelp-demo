@@ -1,6 +1,7 @@
 import { Element, track, wire } from 'engine';
 import { getRecord } from 'lightning-ui-api-record';
 import pubsub from 'c-pubsub';
+import assets from '@resource-url/bike_assets';
 
 const fields = [
     'Product__c.Name',
@@ -15,6 +16,7 @@ const fields = [
 export default class ProductCard extends Element {
     @track recordId;
     @track product;
+    @track logo = assets + '/logo.svg';
 
     @wire(getRecord, { recordId: '$recordId', fields: fields })
     wiredRecord({ error, data }) {

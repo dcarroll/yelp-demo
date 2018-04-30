@@ -57,8 +57,9 @@
 
             </template>
             <template if:false={product}>
-                <div class="placeholder">
-                    Select a product in the list to see details here.
+                <div class="slds-align_absolute-center placeholder">
+                    <img src={logo} class="logo" />
+                    <div>Select a product to see details</div>
                 </div>
             </template>
 

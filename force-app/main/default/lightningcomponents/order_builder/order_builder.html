@@ -1,14 +1,24 @@
 <template>
 
-    <div>
+    <div class="content">
         <header class="slds-text-heading_small">
-            Order Total: <lightning-formatted-number format-style="currency" currency-code="USD" value={orderTotalAmount} class="order-total"></lightning-formatted-number>
-            Total Items: {orderTotalQty}
+            <div>
+                Order Total:
+                <lightning-formatted-number format-style="currency" currency-code="USD" value={orderTotalAmount}
+                    class="order-total"></lightning-formatted-number>
+            </div>
+            <div class="right">Total Items: {orderTotalQty}</div>
         </header>
         <div class="drop-zone slds-p-around_x-small" ondrop={dropHandler} ondragover={dragOverHandler} ondragleave={dragLeaveHandler}>
             <template for:each={orderItems} for:item="orderItem">
-                <c-order_item_tile key={orderItem.id} record-id={orderItem.id} class="slds-m-around_x-small" 
-                    onorderitemchange={orderItemChangeHandler} onorderitemdelete={orderItemDeleteHandler}></c-order_item_tile>
+                <c-order_item_tile key={orderItem.id} record-id={orderItem.id} class="slds-m-around_x-small" onorderitemchange={orderItemChangeHandler}
+                    onorderitemdelete={orderItemDeleteHandler}></c-order_item_tile>
+            </template>
+            <template if:true={isEmpty}>
+                <div class="slds-align_absolute-center placeholder">
+                    <img src={logo} class="logo" />
+                    <div>Drag products here to add items to the order</div>
+                </div>
             </template>
         </div>
     </div>

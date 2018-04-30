@@ -17,9 +17,9 @@
                 <lightning-input-field field-name="Qty_L__c" onchange={inputChangeHandler} class="qty"></lightning-input-field>
             </div>
             <div class="action-buttons slds-align_absolute-center">
-                <lightning-button-icon icon-name="utility:delete" variant="bare" size="medium" class="slds-p-around_x-small" onclick={deleteHandler}></lightning-button-icon>
+                <lightning-button-icon icon-name="utility:delete" variant="bare" size="large" class="delete-button" onclick={deleteHandler}></lightning-button-icon>
                 <template if:true={isModified}>
-                    <lightning-button-icon icon-name="utility:check" variant="bare" size="medium" class="slds-p-around_x-small" type="submit"></lightning-button-icon>
+                    <lightning-button-icon icon-name="utility:check" variant="bare" size="large" class="save-button" type="submit"></lightning-button-icon>
                 </template>
             </div>
         </lightning-record-edit-form>

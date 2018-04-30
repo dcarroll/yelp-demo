@@ -1,6 +1,7 @@
 .content {
     padding: 8px;
     background-color: #FFFFFF;
+    border-radius: 0.25rem;
 }
 
 a {
@@ -9,11 +10,8 @@ a {
 
 img.product {
     height: 120px;
-    /* pointer-events: none; */
-}
-
-img {
     max-width: initial;
+    pointer-events: none;
 }
 
 .title {

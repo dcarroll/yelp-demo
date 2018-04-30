@@ -1,5 +1,6 @@
 import { Element, api, track, wire } from 'engine';
 import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
+import assets from '@resource-url/bike_assets';
 
 export default class OrderBuilder extends Element {
     @api orderId;
@@ -9,6 +10,8 @@ export default class OrderBuilder extends Element {
     @track orderTotalAmount = 0;
 
     @track orderTotalQty = 0;
+
+    @track logo = assets + '/logo.svg';
 
     @wire(getRecordCreateDefaults, { apiName: 'Order_Item__c' })
     defaults;
@@ -56,5 +59,9 @@ export default class OrderBuilder extends Element {
         this.orderTotalQty = this.orderTotalQty - orderItemQty;
         this.orderTotalAmount = this.orderTotalAmount - orderItemQty * orderItem.Price__c.value;
         this.orderItems = this.orderItems.filter(item => item.id !== orderItem.Id.value);
+    }
+
+    get isEmpty() {
+        return this.orderItems.length === 0;
     }
 }
