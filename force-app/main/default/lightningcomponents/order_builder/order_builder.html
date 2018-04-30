@@ -10,11 +10,9 @@
             <div class="right">Total Items: {orderTotalQty}</div>
         </header>
         <div class="drop-zone slds-p-around_x-small" ondrop={dropHandler} ondragover={dragOverHandler} ondragleave={dragLeaveHandler}>
-            <template if:false={isEmpty}>
-                <template for:each={orderItems} for:item="orderItem">
-                    <c-order_item_tile key={orderItem.id} record-id={orderItem.id} class="slds-m-around_x-small" onorderitemchange={orderItemChangeHandler}
-                        onorderitemdelete={orderItemDeleteHandler}></c-order_item_tile>
-                </template>
+            <template for:each={orderItems} for:item="orderItem">
+                <c-order_item_tile key={orderItem.id} record-id={orderItem.id} class="slds-m-around_x-small" onorderitemchange={orderItemChangeHandler}
+                    onorderitemdelete={orderItemDeleteHandler}></c-order_item_tile>
             </template>
             <template if:true={isEmpty}>
                 <div class="slds-align_absolute-center placeholder">

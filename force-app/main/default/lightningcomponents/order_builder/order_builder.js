@@ -62,6 +62,6 @@ export default class OrderBuilder extends Element {
     }
 
     get isEmpty() {
-        return !(this.orderItems && this.orderItems.length > 0);
+        return this.orderItems.length === 0;
     }
 }

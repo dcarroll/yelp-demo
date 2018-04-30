@@ -14,7 +14,7 @@ export default class ProductTileList extends Element {
         return this._products;
     }
 
-    @track selectedProducts;
+    @track selectedProducts = [];
 
     @track logo = assets + '/logo.svg';
 
@@ -45,6 +45,6 @@ export default class ProductTileList extends Element {
     }
 
     get isEmpty() {
-        return !(this.selectedProducts && this.selectedProducts.length > 0);
+        return this.selectedProducts.length === 0;
     }
 }
