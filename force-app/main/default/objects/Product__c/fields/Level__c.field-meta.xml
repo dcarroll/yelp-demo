@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Gender__c</fullName>
+    <fullName>Level__c</fullName>
     <externalId>false</externalId>
-    <label>Gender</label>
+    <label>Level</label>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -11,14 +11,19 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Men</fullName>
+                <fullName>Beginner</fullName>
                 <default>false</default>
-                <label>Men</label>
+                <label>Beginner</label>
             </value>
             <value>
-                <fullName>Women</fullName>
+                <fullName>Enthusiast</fullName>
                 <default>false</default>
-                <label>Women</label>
+                <label>Enthusiast</label>
+            </value>
+            <value>
+                <fullName>Racer</fullName>
+                <default>false</default>
+                <label>Racer</label>
             </value>
         </valueSetDefinition>
     </valueSet>

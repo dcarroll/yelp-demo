@@ -6,7 +6,7 @@ import assets from '@resource-url/bike_assets';
 const fields = [
     'Product__c.Name',
     'Product__c.Description__c',
-    'Product__c.Gender__c',
+    'Product__c.Level__c',
     'Product__c.Category__c',
     'Product__c.Material__c',
     'Product__c.MSRP__c',

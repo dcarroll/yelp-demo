@@ -76,6 +76,10 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentInstanceProperties>
+                <name>searchBarIsVisible</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentName>productTileListWrapper</componentName>
         </componentInstances>
         <mode>Replace</mode>

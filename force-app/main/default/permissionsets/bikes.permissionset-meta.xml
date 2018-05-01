@@ -65,7 +65,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Product__c.Gender__c</field>
+        <field>Product__c.Level__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

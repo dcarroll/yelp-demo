@@ -2,22 +2,15 @@ import { Element, track } from 'engine';
 import pubsub from 'c-pubsub';
 
 export default class ProductFilter extends Element {
-
     @track searchKey = '';
-
     @track maxPrice = 10000;
-
     @track aluminum = true;
-
     @track carbon = true;
-
     @track commuter = true;
-
     @track mountain = true;
-
-    @track men = true;
-
-    @track women = true;
+    @track beginner = true;
+    @track enthusiast = true;
+    @track racer = true;
 
     resetHandler() {
         this.searchKey = '';
@@ -26,8 +19,9 @@ export default class ProductFilter extends Element {
         this.carbon = true;
         this.commuter = true;
         this.mountain = true;
-        this.men = true;
-        this.women = true;
+        this.beginner = true;
+        this.enthusiast = true;
+        this.racer = true;
         this.fireFilterChangeEvent();
     }
 
@@ -42,7 +36,7 @@ export default class ProductFilter extends Element {
     }
 
     onCheckboxChange(event) {
-        const el = event.target.querySelector("input");
+        const el = event.target.querySelector('input');
         this[event.target.dataset.src] = el.checked;
         this.fireFilterChangeEvent();
     }
@@ -55,10 +49,10 @@ export default class ProductFilter extends Element {
             carbon: this.carbon,
             commuter: this.commuter,
             mountain: this.mountain,
-            men: this.men,
-            women: this.women
+            beginner: this.beginner,
+            enthusiast: this.enthusiast,
+            racer: this.racer,
         };
         pubsub.fire('filterChange', filters);
     }
-
 }
