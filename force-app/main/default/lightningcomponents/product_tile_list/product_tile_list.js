@@ -1,18 +1,9 @@
-import { Element, api, track } from 'engine';
+import { Element, api, track, wire } from 'engine';
 import pubsub from 'c-pubsub';
 import assets from '@resource-url/bike_assets';
+import { getProducts } from '@apex/ProductController.getProducts';
 
 export default class ProductTileList extends Element {
-    @api
-    set products(products) {
-        this._products = products;
-        this.selectedProducts = products;
-    }
-
-    @api
-    get products() {
-        return this._products;
-    }
 
     @api searchBarIsVisible = false;
 
@@ -20,11 +11,17 @@ export default class ProductTileList extends Element {
 
     @track logo = assets + '/logo.svg';
 
-    _products;
-
+    products;
+    
     connectedCallback() {
         this.filterChangeCallback = this.onFilterChange.bind(this);
         pubsub.register('filterChange', this.filterChangeCallback);
+
+        getProducts().then((result) => {
+            this.products = result;
+            this.selectedProducts = result;
+        });
+
     }
 
     disconnectedCallback() {
