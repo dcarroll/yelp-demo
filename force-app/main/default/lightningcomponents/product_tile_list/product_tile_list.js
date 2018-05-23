@@ -1,32 +1,39 @@
 import { Element, api, track } from 'engine';
 import pubsub from 'c-pubsub';
 import assets from '@resource-url/bike_assets';
+import { getProducts } from '@apex/ProductController.getProducts';
 
 export default class ProductTileList extends Element {
-    @api
-    set products(products) {
-        this._products = products;
-        this.selectedProducts = products;
-    }
-
-    @api
-    get products() {
-        return this._products;
-    }
+    @api searchBarIsVisible = false;
 
     @track selectedProducts = [];
 
     @track logo = assets + '/logo.svg';
 
-    _products;
+    products;
 
     connectedCallback() {
         this.filterChangeCallback = this.onFilterChange.bind(this);
         pubsub.register('filterChange', this.filterChangeCallback);
+        getProducts()
+            .then(result => {
+                this.products = result;
+                this.selectedProducts = result;
+            })
+            .catch(() => {
+                //TODO: implement error handling
+            });
     }
 
     disconnectedCallback() {
         pubsub.unregister('filterChange', this.filterChangeCallback);
+    }
+
+    searchKeyChangeHandler(event) {
+        const searchKey = event.target.value;
+        this.selectedProducts = this.products.filter(product =>
+            product.Name.toLowerCase().includes(searchKey.toLowerCase()),
+        );
     }
 
     onFilterChange(filters) {
@@ -38,8 +45,9 @@ export default class ProductTileList extends Element {
                 (filters.mountain ? true : product.Category__c !== 'Mountain') &&
                 (filters.aluminum ? true : product.Material__c !== 'Aluminum') &&
                 (filters.carbon ? true : product.Material__c !== 'Carbon') &&
-                (filters.men ? true : product.Gender__c !== 'Men') &&
-                (filters.women ? true : product.Gender__c !== 'Women')
+                (filters.beginner ? true : product.Level__c !== 'Beginner') &&
+                (filters.enthusiast ? true : product.Level__c !== 'Enthusiast') &&
+                (filters.racer ? true : product.Level__c !== 'Racer')
             );
         });
     }

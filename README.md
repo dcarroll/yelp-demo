@@ -20,7 +20,7 @@
 
 1. Create a scratch org and provide it with an alias (nto):
     ```
-    sfdx force:org:create -s -f config/project-scratch-def.json -a ebikes --setdefaultusername
+    sfdx force:org:create -s -f config/project-scratch-def.json -a ebikes
     ```
 
 1. Push the app to your scratch org:
@@ -28,7 +28,7 @@
     sfdx force:source:push
     ```
 
-1. Assign the nto permission set to the default user:
+1. Assign the **bikes** permission set to the default user:
     ```
     sfdx force:user:permset:assign -n bikes
     ```
