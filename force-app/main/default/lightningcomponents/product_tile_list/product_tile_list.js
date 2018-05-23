@@ -15,11 +15,14 @@ export default class ProductTileList extends Element {
     connectedCallback() {
         this.filterChangeCallback = this.onFilterChange.bind(this);
         pubsub.register('filterChange', this.filterChangeCallback);
-
-        getProducts().then(result => {
-            this.products = result;
-            this.selectedProducts = result;
-        });
+        getProducts()
+            .then(result => {
+                this.products = result;
+                this.selectedProducts = result;
+            })
+            .catch(() => {
+                //TODO: implement error handling
+            });
     }
 
     disconnectedCallback() {
