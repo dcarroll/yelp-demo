@@ -1,9 +1,31 @@
 import { Element, api, track, wire } from 'engine';
 import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
 import assets from '@resource-url/bike_assets';
+import { getOrderItems } from '@apex/OrderController.getOrderItems';
+import { deleteOrderItem } from '@apex/OrderController.deleteOrderItem';
 
 export default class OrderBuilder extends Element {
-    @api orderId;
+    @api
+    set orderId(orderId) {
+        this._orderId = orderId;
+        getOrderItems({ orderId: orderId })
+            .then(result => {
+                this.orderItems = result;
+                this.orderItems.forEach(orderItem => {
+                    const orderItemQty = orderItem.Qty_S__c + orderItem.Qty_M__c + orderItem.Qty_L__c;
+                    this.orderTotalQty = this.orderTotalQty + orderItemQty;
+                    this.orderTotalAmount = this.orderTotalAmount + orderItemQty * orderItem.Price__c;
+                });
+            })
+            .catch((/*error*/) => {
+                //TODO: implement error handling
+            });
+    }
+
+    @api
+    get orderId() {
+        return this._orderId;
+    }
 
     @track orderItems = [];
 
@@ -30,7 +52,7 @@ export default class OrderBuilder extends Element {
         Object.assign(recordInput, overrides);
         createRecord(recordInput)
             .then(newRecord => {
-                this.orderItems = [...this.orderItems, newRecord];
+                this.orderItems = [...this.orderItems, { Id: newRecord.id }];
                 const orderItem = newRecord.fields;
                 const orderItemQty = orderItem.Qty_S__c.value + orderItem.Qty_M__c.value + orderItem.Qty_L__c.value;
                 this.orderTotalQty = this.orderTotalQty + orderItemQty;
@@ -58,7 +80,13 @@ export default class OrderBuilder extends Element {
         const orderItemQty = orderItem.Qty_S__c.value + orderItem.Qty_M__c.value + orderItem.Qty_L__c.value;
         this.orderTotalQty = this.orderTotalQty - orderItemQty;
         this.orderTotalAmount = this.orderTotalAmount - orderItemQty * orderItem.Price__c.value;
-        this.orderItems = this.orderItems.filter(item => item.id !== orderItem.Id.value);
+        deleteOrderItem({ orderItemId: orderItem.Id.value })
+            .then(() => {
+                this.orderItems = this.orderItems.filter(item => item.Id !== orderItem.Id.value);
+            })
+            .catch((/*error*/) => {
+                //TODO: implement error handling
+            });
     }
 
     get isEmpty() {

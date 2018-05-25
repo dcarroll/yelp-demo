@@ -11,7 +11,7 @@
         </header>
         <div class="drop-zone slds-p-around_x-small" ondrop={dropHandler} ondragover={dragOverHandler} ondragleave={dragLeaveHandler}>
             <template for:each={orderItems} for:item="orderItem">
-                <c-order_item_tile key={orderItem.id} record-id={orderItem.id} class="slds-m-around_x-small" onorderitemchange={orderItemChangeHandler}
+                <c-order_item_tile key={orderItem.Id} record-id={orderItem.Id} class="slds-m-around_x-small" onorderitemchange={orderItemChangeHandler}
                     onorderitemdelete={orderItemDeleteHandler}></c-order_item_tile>
             </template>
             <template if:true={isEmpty}>
