@@ -1,4 +1,6 @@
-## Electric Bike Company Sample App
+## oZo Bikes LWC Sample App
+
+oZo is a fictitious electric bike manufacturer. This sample app demonstrates how to build applications on the Salesforce platform using Lightning Web Components. The application allows oZo to manage its products and its relationships with resellers.
 
 ## Installation Instructions
 
@@ -45,3 +47,80 @@
     ```
 
 1. In App Launcher, select the **oZo bicycles app**
+
+## Application Walkthrough
+
+1. Click the **Product Explorer** tab.
+
+1. Filter the list using the filter component in the left sidebar.
+
+1. Click a product in the tile list to see the details in the product card.
+
+### Reseller Orders
+
+1. Click the down arrow on the **Reseller Order** tab and click **New Reseller Order**.
+
+1. Select an account, for example **Wheelworks** and click **Save**.
+
+1. Drag a product from the product list on the right onto the gray panel in the center. The product is automatically added to the order as an order item.
+
+1. Modify the ordered quantity for small (S), medium (M), and large (L) frames and click the save button (checkmark icon).
+
+1. Repeat steps 3 and 4 to add more products to the order.
+
+1. Mouse over an order item tile and click the trash can icon to delete an order item from the order.
+
+## Code Highlights
+
+### Product Explorer
+
+- In [ProductTileList](force-app/main/default/lightningcomponents/product_tile_list/product_tile_list.js), the list of products is retrieved by invoking ```getProducts()``` in the [ProductController](force-app/main/default/classes/ProductController.cls) Apex class.
+
+- [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) is a custom utility that provides a minimalistic implementation of an event broker to support inter-component communication in App Builder. This capability was previously supported using **application events** in aura.
+
+- In [ProductTile](force-app/main/default/lightningcomponents/product_tile/product_tile.js), we use the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to publish a ```productSelected``` event when the user selects a product (by clicking a product tile). 
+
+- [ProductCard](force-app/main/default/lightningcomponents/product_card/product_card.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to register a listener for the ```productSelected``` event. When a ```productSelected``` event is published, we set the ```recordId``` to the id of the product that was selected. The Lightning Data Service then automatically retrieves the data for the newly selected product.
+
+    ```
+    @wire(getRecord, { recordId: '$recordId', fields: fields })
+    wiredRecord({ error, data }) {
+        if (data) {
+            this.product = data.fields;
+        }
+    }
+    ```
+
+- [ProductFilter](force-app/main/default/lightningcomponents/product_filter/product_filter.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to publish a ```filterChange``` event when the user changes the filters. 
+
+- [ProductTileList](force-app/main/default/lightningcomponents/product_tile_list/product_tile_list.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to register a listener for the ```filterChange``` event. When a ```filterChange``` event is published, we filter the list based on the new criteria.
+
+### Reseller Orders
+
+- In [OrderBuilder](force-app/main/default/lightningcomponents/order_builder/order_builder.js), the list of order items is retrieved by invoking ```getOrderItems()``` in the [ProductController](force-app/main/default/classes/ProductController.cls) Apex class.
+
+- In [OrderItemTile](force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.js), we use the Lightning Data Service to retrieve the product data.
+
+    ```
+    @wire(getRecord, { recordId: '$recordId', fields })
+    wiredRecord({ error, data }) {
+        if (data) {
+            this.product = data.fields.Product__r.value;
+        }
+    }
+    ```
+
+- In [OrderItemTile](force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.html), we use ```lightning-record-edit-form``` to edit the order item (change price and quantities) without code. When the changes are submitted, we use the ```formSuccessHandler``` handler to fire an ```orderitemchange``` event. The parent component ([OrderBuilder](force-app/main/default/lightningcomponents/order_builder/order_builder.js)) handles the event to display the updated order total.
+
+- In [OrderBuilder](force-app/main/default/lightningcomponents/order_builder/order_builder.js), we use the ```getRecordCreateDefaults``` function of the Lightning Data Service to obtain the default values for an Order_Item__c record. These default values are used when creating new order items.
+
+    ```
+    @wire(getRecordCreateDefaults, { apiName: 'Order_Item__c' })
+    defaults;
+    ```
+
+- When a product is dropped in the order items area, we use ```createRecordInputFromRecord``` to prepare a new order item record using the default values obtained using ```getRecordCreateDefaults```. We then override the default values with the order id, the product id, and the product price, and we create the record using the ```createRecord``` function of the Lightning Data Service.
+
+- In [OrderItemTile](force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.html), an ```orderitemdelete``` event is fired when the user clicks the delete button. The parent component ([OrderBuilder](force-app/main/default/lightningcomponents/order_builder/order_builder.js)) handles the event and calls ```deleteOrderItem()``` in the [ProductController](force-app/main/default/classes/ProductController.cls) Apex class.
+
+
