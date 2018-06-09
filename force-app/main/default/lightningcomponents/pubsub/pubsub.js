@@ -4,7 +4,7 @@ const register = (eventName, callback) => {
     if (!callbacks[eventName]) {
         callbacks[eventName] = new Set();
     }
-    callbacks[eventName] = callbacks[eventName].add(callback);
+    callbacks[eventName].add(callback);
 };
 
 const unregister = (eventName, callback) => {
@@ -16,13 +16,17 @@ const unregister = (eventName, callback) => {
 const fire = (eventName, payload) => {
     if (callbacks[eventName]) {
         callbacks[eventName].forEach(callback => {
-            callback(payload);
+            try {
+                callback(payload);
+            } catch (error) {
+                // fail silently
+            }
         });
     }
 };
 
 export default {
-    register: register,
-    unregister: unregister,
-    fire: fire,
+    register,
+    unregister,
+    fire,
 };

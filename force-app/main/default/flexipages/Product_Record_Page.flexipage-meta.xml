@@ -73,7 +73,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>skillLevelWrapper</componentName>
+            <componentName>skill_level</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>

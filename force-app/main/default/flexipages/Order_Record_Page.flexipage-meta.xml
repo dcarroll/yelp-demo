@@ -25,7 +25,7 @@
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <componentInstances>
-            <componentName>orderBuilderWrapper</componentName>
+            <componentName>order_builder</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>detailTabContent</name>

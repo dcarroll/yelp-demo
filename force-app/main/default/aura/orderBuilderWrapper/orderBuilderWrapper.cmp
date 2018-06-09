@@ -1,5 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
-
-    <c:order_builder orderId="{!v.recordId}"></c:order_builder>
-
-</aura:component>	
