@@ -1,14 +1,15 @@
-import { Element, api, track, wire } from 'engine';
+import { Element, track, wire } from 'engine';
 import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
 import assets from '@resource-url/bike_assets';
 import { getOrderItems } from '@apex/OrderController.getOrderItems';
 import { deleteOrderItem } from '@apex/OrderController.deleteOrderItem';
+import { getPageReference } from 'lightning-navigation';
 
 export default class OrderBuilder extends Element {
-    @api
-    set orderId(orderId) {
-        this._orderId = orderId;
-        getOrderItems({ orderId: orderId })
+    @wire(getPageReference, {})
+    wiredPageReference(pageReference) {
+        this.orderId = pageReference.attributes.recordId;
+        getOrderItems({ orderId: this.orderId })
             .then(result => {
                 this.orderItems = result;
                 this.orderItems.forEach(orderItem => {
@@ -20,11 +21,6 @@ export default class OrderBuilder extends Element {
             .catch((/*error*/) => {
                 //TODO: implement error handling
             });
-    }
-
-    @api
-    get orderId() {
-        return this._orderId;
     }
 
     @track orderItems = [];

@@ -1,8 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes" controller="ProductController" access="global">
-
-    <aura:attribute name="products" type="Product__c[]"/>
-    <aura:attribute name="searchBarIsVisible" type="Boolean" default="false"/>
-
-    <c:product_tile_list searchBarIsVisible="{!v.searchBarIsVisible}"></c:product_tile_list>
-
-</aura:component>	

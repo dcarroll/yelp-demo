@@ -25,7 +25,7 @@
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <componentInstances>
-            <componentName>orderBuilderWrapper</componentName>
+            <componentName>order_builder</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>detailTabContent</name>
@@ -80,7 +80,7 @@
                 <name>searchBarIsVisible</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>productTileListWrapper</componentName>
+            <componentName>product_tile_list</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>

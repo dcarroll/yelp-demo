@@ -1,5 +1,0 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
-
-    <c:skill_level recordId="{!v.recordId}"></c:skill_level>
-
-</aura:component>
