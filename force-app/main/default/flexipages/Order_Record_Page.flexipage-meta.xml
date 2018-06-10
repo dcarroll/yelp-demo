@@ -80,7 +80,7 @@
                 <name>searchBarIsVisible</name>
                 <value>true</value>
             </componentInstanceProperties>
-            <componentName>productTileListWrapper</componentName>
+            <componentName>product_tile_list</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>

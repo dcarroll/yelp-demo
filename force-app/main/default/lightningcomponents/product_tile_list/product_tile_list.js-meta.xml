@@ -9,8 +9,9 @@
     </tags>
     <tagConfigs>
     	<tagConfig tags="lightning__RecordHome">
+            <property name="searchBarIsVisible" type="Boolean" />
     		<objects>
-                <object>Product__c</object>
+                <object>Order__c</object>
     		</objects>
     	</tagConfig>
     </tagConfigs>
