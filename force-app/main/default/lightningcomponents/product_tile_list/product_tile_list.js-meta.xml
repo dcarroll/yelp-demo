@@ -3,16 +3,16 @@
     <apiVersion>43.0</apiVersion>
     <isExposed>true</isExposed>
     <tags>
-    	<tag>lightning__AppHome</tag>
-    	<tag>lightning__RecordHome</tag>
+        <tag>lightning__AppHome</tag>
+        <tag>lightning__RecordHome</tag>
         <tag>lightning__Home</tag>
     </tags>
     <tagConfigs>
-    	<tagConfig tags="lightning__RecordHome">
-            <property name="searchBarIsVisible" type="Boolean" />
-    		<objects>
+        <tagConfig tags="lightning__RecordHome">
+            <property name="searchBarIsVisible" type="Boolean" label="Search bar visible" />
+            <objects>
                 <object>Order__c</object>
-    		</objects>
-    	</tagConfig>
+            </objects>
+        </tagConfig>
     </tagConfigs>
 </LightningComponentBundle>

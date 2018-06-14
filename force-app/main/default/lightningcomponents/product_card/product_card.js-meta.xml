@@ -2,16 +2,16 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>43.0</apiVersion>
     <isExposed>false</isExposed>
-        <tags>
-    	<tag>lightning__AppHome</tag>
-    	<tag>lightning__RecordHome</tag>
+    <tags>
+        <tag>lightning__AppHome</tag>
+        <tag>lightning__RecordHome</tag>
         <tag>lightning__Home</tag>
     </tags>
     <tagConfigs>
-    	<tagConfig tags="lightning__RecordHome">
-    		<objects>
+        <tagConfig tags="lightning__RecordHome">
+            <objects>
                 <object>Product__c</object>
-    		</objects>
-    	</tagConfig>
+            </objects>
+        </tagConfig>
     </tagConfigs>
 </LightningComponentBundle>

@@ -6,6 +6,7 @@ const fields = ['Product__c.Name'];
 
 export default class SkillLevel extends Element {
     @track product;
+    recordId;
 
     @wire(getPageReference, {})
     wiredPageReference(pageReference) {

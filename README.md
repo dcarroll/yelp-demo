@@ -1,4 +1,4 @@
-## oZo Bikes LWC Sample App
+## oZo Bikes LWC Sample App [![CircleCI](https://circleci.com/gh/forcedotcom/ebikes-lwc.svg?style=svg&circle-token=9ec6704318a45814d2e03c0076b7757c8d15cebd)](https://circleci.com/gh/forcedotcom/ebikes-lwc)
 
 oZo is a fictitious electric bike manufacturer. This sample app demonstrates how to build applications on the Salesforce platform using Lightning Web Components. The application allows oZo to manage its products and its relationships with resellers.
 
@@ -76,9 +76,9 @@ oZo is a fictitious electric bike manufacturer. This sample app demonstrates how
 
 - In [ProductTileList](force-app/main/default/lightningcomponents/product_tile_list/product_tile_list.js), the list of products is retrieved by invoking ```getProducts()``` in the [ProductController](force-app/main/default/classes/ProductController.cls) Apex class.
 
-- [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) is a custom utility that provides a minimalistic implementation of an event broker to support inter-component communication in App Builder. This capability was previously supported using **application events** in aura.
+- [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) is a custom utility that provides a minimalistic implementation of an event broker to support inter-component communication in App Builder. This capability was previously supported using **application events** in Aura.
 
-- In [ProductTile](force-app/main/default/lightningcomponents/product_tile/product_tile.js), we use the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to publish a ```productSelected``` event when the user selects a product (by clicking a product tile). 
+- In [ProductTile](force-app/main/default/lightningcomponents/product_tile/product_tile.js), we use the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to publish a ```productSelected``` event when the user selects a product by clicking a product tile.
 
 - [ProductCard](force-app/main/default/lightningcomponents/product_card/product_card.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to register a listener for the ```productSelected``` event. When a ```productSelected``` event is published, we set the ```recordId``` to the id of the product that was selected. The Lightning Data Service then automatically retrieves the data for the newly selected product.
 
@@ -91,7 +91,7 @@ oZo is a fictitious electric bike manufacturer. This sample app demonstrates how
     }
     ```
 
-- [ProductFilter](force-app/main/default/lightningcomponents/product_filter/product_filter.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to publish a ```filterChange``` event when the user changes the filters. 
+- [ProductFilter](force-app/main/default/lightningcomponents/product_filter/product_filter.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to publish a ```filterChange``` event when the user changes the filters.
 
 - [ProductTileList](force-app/main/default/lightningcomponents/product_tile_list/product_tile_list.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to register a listener for the ```filterChange``` event. When a ```filterChange``` event is published, we filter the list based on the new criteria.
 

@@ -1,9 +1,6 @@
 <template>
-
     <c-card header="Filters">
-
         <lightning-button slot="actions" label="Reset" onclick={resetHandler}></lightning-button>
-
         <lightning-input label="Search Key" type="text" onchange={searchKeyChangeHandler}></lightning-input>
 
         <section>
@@ -28,7 +25,5 @@
             <lightning-input label="Enthusiast" type="checkbox" checked={enthusiast} data-src="enthusiast" onchange={onCheckboxChange}></lightning-input>
             <lightning-input label="Racer" type="checkbox" checked={racer} data-src="racer" onchange={onCheckboxChange}></lightning-input>
         </section>
-
     </c-card>
-
 </template>

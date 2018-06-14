@@ -1,12 +1,8 @@
 <template>
-
     <c-card header={header}>
-
         <div class="content">
             <template if:true={product}>
-
                 <img src={product.Picture_URL__c.value} class="product" />
-
                 <div class="row">
                     <div>Category:</div>
                     <div>{product.Category__c.value}</div>
@@ -21,6 +17,7 @@
                         <lightning-formatted-number format-style="currency" currency-code="USD" value={product.MSRP__c.value} class="price"></lightning-formatted-number>
                     </div>
                 </div>
+
                 <section>Electric Components</section>
                 <div class="row">
                     <div>Battery:</div>
@@ -54,7 +51,6 @@
                     <div>Rear:</div>
                     <div>Hydraulic disc, 200mm</div>
                 </div>
-
             </template>
             <template if:false={product}>
                 <div class="slds-align_absolute-center placeholder">
@@ -65,5 +61,4 @@
 
         </div>
     </c-card>
-
 </template>

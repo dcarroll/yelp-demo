@@ -23,6 +23,8 @@ export default class OrderBuilder extends Element {
             });
     }
 
+    orderId;
+
     @track orderItems = [];
 
     @track orderTotalAmount = 0;

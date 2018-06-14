@@ -3,7 +3,7 @@
     <apiVersion>43.0</apiVersion>
     <isExposed>true</isExposed>
     <tags>
-    	<tag>lightning__AppHome</tag>
+        <tag>lightning__AppHome</tag>
         <tag>lightning__Home</tag>
     </tags>
 </LightningComponentBundle>
