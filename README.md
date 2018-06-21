@@ -1,6 +1,6 @@
-## oZo Bikes LWC Sample App [![CircleCI](https://circleci.com/gh/forcedotcom/ebikes-lwc.svg?style=svg&circle-token=9ec6704318a45814d2e03c0076b7757c8d15cebd)](https://circleci.com/gh/forcedotcom/ebikes-lwc)
+## oZo Bicycles Lightning Web Components Sample App [![CircleCI](https://circleci.com/gh/forcedotcom/ebikes-lwc.svg?style=svg&circle-token=9ec6704318a45814d2e03c0076b7757c8d15cebd)](https://circleci.com/gh/forcedotcom/ebikes-lwc)
 
-oZo is a fictitious electric bike manufacturer. This sample app demonstrates how to build applications on the Salesforce platform using Lightning Web Components. The application allows oZo to manage its products and its relationships with resellers.
+oZo bicycles is a fictitious electric bike manufacturer. This sample app demonstrates how to build applications on the Salesforce platform using Lightning web components. The application allows oZo to manage its products and its relationships with resellers.
 
 ## Installation Instructions
 
@@ -46,7 +46,7 @@ oZo is a fictitious electric bike manufacturer. This sample app demonstrates how
     sfdx force:org:open
     ```
 
-1. In App Launcher, select the **oZo bicycles app**
+1. In App Launcher, select the **oZo bicycles** app.
 
 ## Application Walkthrough
 
