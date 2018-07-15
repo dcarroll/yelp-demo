@@ -2,6 +2,54 @@
 
 oZo bicycles is a fictitious electric bike manufacturer. This sample app demonstrates how to build applications on the Salesforce platform using Lightning web components. The application allows oZo to manage its products and its relationships with resellers.
 
+### Required
+
+To work with this samples repo, install these tools.
+
+- **An Org Configured as a Dev Hub**
+
+    We recommend that you use a Dev Hub org dedicated to the pilot, and don't mix your Lightning web components evaluation with your normal development efforts.
+
+    * <a href="https://developer.salesforce.com/promotions/orgs/dx-signup" target="_blank">Salesforce DX org sign-up</a>
+
+    The pilot coordinator must enable Lightning Web Components for your Dev Hub org. Send the Dev Hub org ID to the pilot coordinator via the [**Lightning Web Components - Pilot**](https://org62.lightning.force.com/one/one.app#/chatter/record/0F90M0000004r9GSAQ) Chatter group.
+
+    To find your org ID, from Setup, enter *company* in the **Quick Find** box, then select **Company Information**.
+
+- **The Salesforce CLI and `salesforcedx` Plugin.**
+
+    To install the Salesforce CLI, start here: <a href="https://developer.salesforce.com/tools/sfdxcli" target="_blank">Salesforce CLI</a>
+
+    If you've already installed the Salesforce CLI, update your plugins.
+    ```bash
+    sfdx plugins:update
+    ```
+
+    The installed version of the salesforcedx plugin must support API version 42.0 or later. Check the API version.
+    ```bash
+    sfdx plugins --core
+    ```
+- **Git**
+
+   Install [Git](https://help.github.com/articles/set-up-git/)
+
+- **Node.js**
+
+   Install [Node.js](https://nodejs.org)
+
+### Highly Recommended Tools
+
+We want you to enjoy developing Lightning web components as much as we do, so we've created an extension for Visual Studio Code that provides code completion, static analysis, compiler validation as you type, and lots more. You can also run Salesforce CLI commands right from Visual Studio Code. We're really looking forward to your feedback about these tools, so we hope you use them!
+
+* Install [Visual Studio Code](https://code.visualstudio.com/)
+
+* Install [Salesforce Extensions for VS Code](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode)
+
+* Install [LWC Code Editor for Visual Studio](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode-lwc)
+
+    To learn how to use the extension, check out the [ReadMe](/docs/README_vscode_extension.md).
+
+
 ## Installation Instructions
 
 1. Authenticate with your hub org (if not already done):
@@ -83,7 +131,7 @@ oZo bicycles is a fictitious electric bike manufacturer. This sample app demonst
 - [ProductCard](force-app/main/default/lightningcomponents/product_card/product_card.js) uses the [pubsub](force-app/main/default/lightningcomponents/pubsub/pubsub.js) utility to register a listener for the ```productSelected``` event. When a ```productSelected``` event is published, we set the ```recordId``` to the id of the product that was selected. The Lightning Data Service then automatically retrieves the data for the newly selected product.
 
     ```
-    @wire(getRecord, { recordId: '$recordId', fields: fields })
+    @wire(getRecord, { recordId: '$recordId', fields })
     wiredRecord({ error, data }) {
         if (data) {
             this.product = data.fields;
@@ -122,5 +170,3 @@ oZo bicycles is a fictitious electric bike manufacturer. This sample app demonst
 - When a product is dropped in the order items area, we use ```createRecordInputFromRecord``` to prepare a new order item record using the default values obtained using ```getRecordCreateDefaults```. We then override the default values with the order id, the product id, and the product price, and we create the record using the ```createRecord``` function of the Lightning Data Service.
 
 - In [OrderItemTile](force-app/main/default/lightningcomponents/order_item_tile/order_item_tile.html), an ```orderitemdelete``` event is fired when the user clicks the delete button. The parent component ([OrderBuilder](force-app/main/default/lightningcomponents/order_builder/order_builder.js)) handles the event and calls ```deleteOrderItem()``` in the [ProductController](force-app/main/default/classes/ProductController.cls) Apex class.
-
-
