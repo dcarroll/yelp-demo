@@ -12,9 +12,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Salesforce DX
+          name: Install Salesforce DX and upgrade npm to the lastest version
           command: |
-              sudo npm install -g sfdx-cli
+              sudo npm install -g sfdx-cli npm
       - run:
           name: Install package dependencies
           command: |
