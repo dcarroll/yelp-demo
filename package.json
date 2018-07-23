@@ -1,7 +1,8 @@
 {
-  "name": "dreamhouse-lwc",
+  "name": "ebikes-lwc",
+  "private": true,
   "version": "0.0.1",
-  "description": "DreamHouse Sample App - Lightning Web Components",
+  "description": "oZo Bicycles Lightning Web Components Sample App",
   "scripts": {
     "lint": "npm run lint:lwc && npm run lint:aura",
     "lint:lwc": "eslint --max-warnings 0 force-app/main/default/lightningcomponents",
@@ -10,7 +11,7 @@
     "test:unit": "lts-jest test",
     "prettier": "prettier --write '**/*.js'",
     "prettier:staged": "./bin/prettier-staged.js",
-    "postinstall": "babel-node bin/check-version.js"
+    "postinstall": "node bin/check-version.js"
   },
   "author": "salesforce.com",
   "license": "Apache-2.0",
@@ -23,16 +24,8 @@
     "npm": ">= 5.7.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
-    "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "babel-runtime": "^6.26.0",
     "eslint": "4.16.0",
     "eslint-plugin-lwc": "0.3.2",
-    "eslint-plugin-webdriverio": "^1.0.1",
     "husky": "^0.15.0-rc.8",
     "lts-jest": "0.0.12",
     "prettier": "1.10.2",
