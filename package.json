@@ -1,7 +1,8 @@
 {
-  "name": "dreamhouse-lwc",
+  "name": "ebikes-lwc",
+  "private": true,
   "version": "0.0.1",
-  "description": "DreamHouse Sample App - Lightning Web Components",
+  "description": "oZo Bicycles Lightning Web Components Sample App",
   "scripts": {
     "lint": "npm run lint:lwc && npm run lint:aura",
     "lint:lwc": "eslint --max-warnings 0 force-app/main/default/lightningcomponents",
@@ -10,7 +11,7 @@
     "test:unit": "lts-jest test",
     "prettier": "prettier --write '**/*.js'",
     "prettier:staged": "./bin/prettier-staged.js",
-    "postinstall": "babel-node bin/check-version.js"
+    "postinstall": "node bin/check-version.js"
   },
   "author": "salesforce.com",
   "license": "Apache-2.0",
