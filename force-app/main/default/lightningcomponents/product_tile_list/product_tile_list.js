@@ -1,7 +1,7 @@
 import { Element, api, track, wire } from 'engine';
 import pubsub from 'c-pubsub';
-import assets from '@resource-url/bike_assets';
-import { getProducts } from '@apex/ProductController.getProducts';
+import assets from '@salesforce/resource-url/bike_assets';
+import getProducts from '@salesforce/apex/ProductController.getProducts';
 
 export default class ProductTileList extends Element {
     products;

@@ -1,7 +1,7 @@
 import { Element, track, wire } from 'engine';
 import { getRecord } from 'lightning-ui-api-record';
 import pubsub from 'c-pubsub';
-import assets from '@resource-url/bike_assets';
+import assets from '@salesforce/resource-url/bike_assets';
 
 const fields = [
     'Product__c.Name',

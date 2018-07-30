@@ -1,8 +1,8 @@
 import { Element, track, wire } from 'engine';
 import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
-import assets from '@resource-url/bike_assets';
-import { getOrderItems } from '@apex/OrderController.getOrderItems';
-import { deleteOrderItem } from '@apex/OrderController.deleteOrderItem';
+import assets from '@salesforce/resource-url/bike_assets';
+import getOrderItems from '@salesforce/apex/OrderController.getOrderItems';
+import deleteOrderItem from '@salesforce/apex/OrderController.deleteOrderItem';
 import { getPageReference } from 'lightning-navigation';
 
 export default class OrderBuilder extends Element {
