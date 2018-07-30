@@ -1,17 +1,11 @@
-import { Element, track, wire } from 'engine';
+import { Element, track, wire, api } from 'engine';
 import { getRecord } from 'lightning-ui-api-record';
-import { getPageReference } from 'lightning-navigation';
 
 const fields = ['Product__c.Name'];
 
 export default class SkillLevel extends Element {
     @track product;
-    recordId;
-
-    @wire(getPageReference, {})
-    wiredPageReference(pageReference) {
-        this.recordId = pageReference.attributes.recordId;
-    }
+    @api recordId;
 
     @wire(getRecord, { recordId: '$recordId', fields: fields })
     wiredRecord({ error, data }) {

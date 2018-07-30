@@ -1,29 +1,25 @@
-import { Element, track, wire } from 'engine';
+import { Element, track, wire, api } from 'engine';
 import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } from 'lightning-ui-api-record';
 import assets from '@salesforce/resource-url/bike_assets';
 import getOrderItems from '@salesforce/apex/OrderController.getOrderItems';
 import deleteOrderItem from '@salesforce/apex/OrderController.deleteOrderItem';
-import { getPageReference } from 'lightning-navigation';
 
 export default class OrderBuilder extends Element {
-    @wire(getPageReference, {})
-    wiredPageReference(pageReference) {
-        this.orderId = pageReference.attributes.recordId;
-        getOrderItems({ orderId: this.orderId })
-            .then(result => {
-                this.orderItems = result;
-                this.orderItems.forEach(orderItem => {
-                    const orderItemQty = orderItem.Qty_S__c + orderItem.Qty_M__c + orderItem.Qty_L__c;
-                    this.orderTotalQty = this.orderTotalQty + orderItemQty;
-                    this.orderTotalAmount = this.orderTotalAmount + orderItemQty * orderItem.Price__c;
-                });
-            })
-            .catch((/*error*/) => {
-                //TODO: implement error handling
-            });
-    }
+    @api recordId;
 
-    orderId;
+    @wire(getOrderItems, { orderId: '$recordId' })
+    wiredOrderItems({ data, error }) {
+        if (error) {
+            //TODO: implement error handling
+        } else if (data) {
+            this.orderItems = data;
+            this.orderItems.forEach(orderItem => {
+                const orderItemQty = orderItem.Qty_S__c + orderItem.Qty_M__c + orderItem.Qty_L__c;
+                this.orderTotalQty = this.orderTotalQty + orderItemQty;
+                this.orderTotalAmount = this.orderTotalAmount + orderItemQty * orderItem.Price__c;
+            });
+        }
+    }
 
     @track orderItems = [];
 

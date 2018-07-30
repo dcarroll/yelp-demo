@@ -6,6 +6,7 @@
         <tag>lightning__AppHome</tag>
         <tag>lightning__RecordHome</tag>
         <tag>lightning__Home</tag>
+        <tag>lightning__HasRecordId</tag>
     </tags>
     <tagConfigs>
         <tagConfig tags="lightning__RecordHome">
