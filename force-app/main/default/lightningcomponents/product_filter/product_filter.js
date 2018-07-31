@@ -36,8 +36,8 @@ export default class ProductFilter extends Element {
     }
 
     onCheckboxChange(event) {
-        const el = event.target.querySelector('input');
-        this[event.target.dataset.src] = el.checked;
+        const target = event.currentTarget;
+        this[target.dataset.src] = target.checked;
         this.fireFilterChangeEvent();
     }
 
