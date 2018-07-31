@@ -4,6 +4,8 @@ import { registerTestWireAdapter } from 'wire-service-jest-util';
 import { getProducts } from '@apex/ProductController.getProducts';
 import pubsub from 'c-pubsub';
 
+// Jest does not know how to resolve Salesforce specific imports like @apex so we need to mock it
+// this will be done automatically in Winter '19
 jest.mock(
     '@apex/ProductController.getProducts',
     () => {
@@ -14,13 +16,13 @@ jest.mock(
     { virtual: true },
 );
 
+// use the wire-service-jest-util to manually emit data through the wire adapters
 const getProductsTestAdapter = registerTestWireAdapter(getProducts);
 
 const mockRecords = [
     {
         Category__c: 'Mountain',
-        Description__c:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        Description__c: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         Id: 'a02Z000000L5kXVIAZ',
         Level__c: 'Racer',
         MSRP__c: 10000,
@@ -30,8 +32,7 @@ const mockRecords = [
     },
     {
         Category__c: 'Mountain',
-        Description__c:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        Description__c: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         Id: 'a02Z000000L5kXWIAZ',
         Level__c: 'Racer',
         MSRP__c: 7800,
@@ -62,6 +63,10 @@ describe('c-product_tile_list', () => {
             const element = createElement('c-product_tile_list', { is: ProductTitleList });
             document.body.appendChild(element);
             getProductsTestAdapter.emit({ data: [] });
+            // return a promise to wait for any asynchronous DOM updates. Jest
+            // will automatically wait for the Promise chain to complete before
+            // ending the test and fail the test if the Promise ends in the
+            // rejected state
             return Promise.resolve().then(() => {
                 const productTiles = element.querySelectorAll('c-product_tile');
                 expect(productTiles).toHaveLength(0);
