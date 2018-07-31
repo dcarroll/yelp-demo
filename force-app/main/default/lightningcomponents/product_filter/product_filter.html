@@ -1,7 +1,7 @@
 <template>
     <c-card header="Filters">
         <lightning-button slot="actions" label="Reset" onclick={resetHandler}></lightning-button>
-        <lightning-input label="Search Key" type="text" onchange={searchKeyChangeHandler}></lightning-input>
+        <lightning-input label="Search Key" type="text" data-src="searchKey" onchange={searchKeyChangeHandler}></lightning-input>
 
         <section>
             <lightning-slider label="Max Price" step="100" min="0" max="10000" value={maxPrice} onchange={maxPriceChangeHandler}></lightning-slider>

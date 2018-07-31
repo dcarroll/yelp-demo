@@ -53,6 +53,7 @@ export default class ProductFilter extends Element {
             enthusiast: this.enthusiast,
             racer: this.racer,
         };
+        //console.log('>>> filters: ', filters);
         pubsub.fire('filterChange', filters);
     }
 }
