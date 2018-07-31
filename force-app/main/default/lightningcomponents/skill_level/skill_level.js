@@ -1,13 +1,12 @@
 import { Element, track, wire, api } from 'engine';
 import { getRecord } from 'lightning-ui-api-record';
-
-const fields = ['Product__c.Name'];
+import NameField from '@salesforce/schema/Product__c.Name';
 
 export default class SkillLevel extends Element {
     @track product;
     @api recordId;
 
-    @wire(getRecord, { recordId: '$recordId', fields: fields })
+    @wire(getRecord, { recordId: '$recordId', fields: [NameField] })
     wiredRecord({ error, data }) {
         if (error) {
             // TODO handle error

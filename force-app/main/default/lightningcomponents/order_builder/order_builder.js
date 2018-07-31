@@ -3,6 +3,7 @@ import { getRecordCreateDefaults, createRecord, createRecordInputFromRecord } fr
 import assets from '@salesforce/resource-url/bike_assets';
 import getOrderItems from '@salesforce/apex/OrderController.getOrderItems';
 import deleteOrderItem from '@salesforce/apex/OrderController.deleteOrderItem';
+import OrderItemObject from '@salesforce/schema/Order_Item__c';
 
 export default class OrderBuilder extends Element {
     @api recordId;
@@ -29,7 +30,8 @@ export default class OrderBuilder extends Element {
 
     @track logo = assets + '/logo.svg';
 
-    @wire(getRecordCreateDefaults, { apiName: 'Order_Item__c' })
+    // TODO - W-4907339 apiName will be renamed to objectApiName
+    @wire(getRecordCreateDefaults, { apiName: OrderItemObject.objectApiName })
     defaults;
 
     dropHandler(event) {

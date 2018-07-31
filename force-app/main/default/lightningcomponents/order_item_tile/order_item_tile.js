@@ -1,12 +1,12 @@
 import { Element, api, track, wire } from 'engine';
 import { getRecord } from 'lightning-ui-api-record';
 
-const fields = [
-    'Order_Item__c.Id',
-    'Order_Item__c.Product__r.Name',
-    'Order_Item__c.Product__r.MSRP__c',
-    'Order_Item__c.Product__r.Picture_URL__c',
-];
+import IdField from '@salesforce/schema/Order_Item__c.Id';
+import ProductNameField from '@salesforce/schema/Order_Item__c.Product__r.Name';
+import ProductMSRPField from '@salesforce/schema/Order_Item__c.Product__r.MSRP__c';
+import ProductPictureURLField from '@salesforce/schema/Order_Item__c.Product__r.Picture_URL__c';
+
+const fields = [IdField, ProductNameField, ProductMSRPField, ProductPictureURLField];
 
 export default class OrderItemTile extends Element {
     @api recordId;
