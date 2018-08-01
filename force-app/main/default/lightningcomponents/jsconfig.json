@@ -29,6 +29,9 @@
             ],
             "c-skill_level": [
                 "skill_level/skill_level.js"
+            ],
+            "c-utils": [
+                "utils/utils.js"
             ]
         }
     },

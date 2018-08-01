@@ -1,7 +1,9 @@
 import { Element, track, wire } from 'engine';
 import { getRecord } from 'lightning-ui-api-record';
 import pubsub from 'c-pubsub';
-import assets from '@salesforce/resource-url/bike_assets';
+import { getFieldValue } from 'c-utils';
+
+import bike_assets from '@salesforce/resource-url/bike_assets';
 
 import NameField from '@salesforce/schema/Product__c.Name';
 import DescriptionField from '@salesforce/schema/Product__c.Description__c';
@@ -14,17 +16,40 @@ import PictureURLField from '@salesforce/schema/Product__c.Picture_URL__c';
 const fields = [NameField, DescriptionField, LevelField, CategoryField, MaterialField, MSRPField, PictureURLField];
 
 export default class ProductCard extends Element {
-    @track recordId;
+    recordId;
+
+    /** Product__c to display */
     @track product;
-    @track logo = assets + '/logo.svg';
+
+    logo = bike_assets + '/logo.svg';
 
     @wire(getRecord, { recordId: '$recordId', fields })
     wiredRecord({ error, data }) {
         if (error) {
             // TODO handle error
         } else if (data) {
-            this.product = data.fields;
+            this.product = data;
         }
+    }
+
+    get pictureUrl() {
+        return getFieldValue(this.product, PictureURLField).value;
+    }
+
+    get category() {
+        return getFieldValue(this.product, CategoryField).displayValue;
+    }
+
+    get level() {
+        return getFieldValue(this.product, LevelField).displayValue;
+    }
+
+    get msrp() {
+        return getFieldValue(this.product, MSRPField).value;
+    }
+
+    get material() {
+        return getFieldValue(this.product, MaterialField).displayValue;
     }
 
     connectedCallback() {
@@ -37,10 +62,10 @@ export default class ProductCard extends Element {
     }
 
     onProductSelected(product) {
-        this.recordId = product.Id;
+        this.recordId = product.id;
     }
-
     get header() {
-        return this.product ? this.product.Name.value : '';
+        // header is always displayed so must handle absence of this.product
+        return this.product ? getFieldValue(this.product, NameField).value : '';
     }
 }

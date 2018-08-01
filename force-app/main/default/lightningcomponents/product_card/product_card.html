@@ -2,19 +2,19 @@
     <c-card header={header}>
         <div class="content">
             <template if:true={product}>
-                <img src={product.Picture_URL__c.value} class="product" />
+                <img src={pictureUrl} class="product" />
                 <div class="row">
                     <div>Category:</div>
-                    <div>{product.Category__c.value}</div>
+                    <div>{category}</div>
                 </div>
                 <div class="row">
                     <div>Level:</div>
-                    <div>{product.Level__c.value}</div>
+                    <div>{level}</div>
                 </div>
                 <div class="row">
                     <div>MSRP:</div>
                     <div>
-                        <lightning-formatted-number format-style="currency" currency-code="USD" value={product.MSRP__c.value} class="price"></lightning-formatted-number>
+                        <lightning-formatted-number format-style="currency" currency-code="USD" value={msrp} class="price"></lightning-formatted-number>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                 <section>Frame</section>
                 <div class="row">
                     <div>Frame:</div>
-                    <div>{product.Material__c.value}</div>
+                    <div>{material}</div>
                 </div>
                 <div class="row">
                     <div>Fork:</div>
@@ -52,13 +52,13 @@
                     <div>Hydraulic disc, 200mm</div>
                 </div>
             </template>
+
             <template if:false={product}>
                 <div class="slds-align_absolute-center placeholder">
                     <img src={logo} class="logo" />
                     <div>Select a product to see details</div>
                 </div>
             </template>
-
         </div>
     </c-card>
 </template>
