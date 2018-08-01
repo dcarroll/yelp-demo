@@ -1,70 +1,53 @@
-import { Element, api, track, wire } from 'engine';
-import { getRecord } from 'lightning-ui-api-record';
-
-import IdField from '@salesforce/schema/Order_Item__c.Id';
-import ProductNameField from '@salesforce/schema/Order_Item__c.Product__r.Name';
-import ProductMSRPField from '@salesforce/schema/Order_Item__c.Product__r.MSRP__c';
-import ProductPictureURLField from '@salesforce/schema/Order_Item__c.Product__r.Picture_URL__c';
-
-const fields = [IdField, ProductNameField, ProductMSRPField, ProductPictureURLField];
+import { Element, api, track } from 'engine';
 
 export default class OrderItemTile extends Element {
+    /** Id of Order_Item__c to display. */
     @api recordId;
-    @track product;
+
+    /** Values of the Order_Item__c to display/edit. */
+    @api pictureUrl;
+    @api name;
+    @api msrp;
+    @api price;
+    @api quantitySmall;
+    @api quantityMedium;
+    @api quantityLarge;
+
+    /** Whether the component has unsaved changes. */
     @track isModified = false;
 
-    originalValues;
+    /** Mutated/unsaved Order_Item__c values. */
+    form = {};
 
-    @wire(getRecord, { recordId: '$recordId', fields })
-    wiredRecord({ error, data }) {
-        if (error) {
-            // TODO handle error
-        } else if (data) {
-            this.product = data.fields.Product__r.value;
-        }
-    }
-
-    inputChangeHandler() {
+    /** Handles form input. */
+    handleChange(evt) {
         this.isModified = true;
+        const field = evt.target.dataset.fieldName;
+        let value = parseInt(evt.detail.value.trim(), 10);
+        if (!Number.isInteger(value)) {
+            value = 0;
+        }
+        this.form[field] = value;
     }
 
-    deleteHandler() {
-        const orderItemDeleteEvent = new CustomEvent('orderitemdelete', {
+    saveOrderItem() {
+        const event = new CustomEvent('orderitemchange', {
             bubbles: true,
             cancelable: true,
             composed: true,
-            detail: this.originalValues,
+            detail: Object.assign({}, { Id: this.recordId }, this.form),
         });
-        this.dispatchEvent(orderItemDeleteEvent);
-    }
-
-    formLoadHandler(event) {
-        this.originalValues = event.detail.records[this.recordId].fields;
-    }
-
-    formSuccessHandler(event) {
-        const newValues = event.detail.fields;
-        const eventDetail = {
-            recordId: this.recordId,
-            originalValues: {
-                price: this.originalValues.Price__c.value,
-                qty:
-                    this.originalValues.Qty_S__c.value +
-                    this.originalValues.Qty_M__c.value +
-                    this.originalValues.Qty_L__c.value,
-            },
-            newValues: {
-                price: newValues.Price__c.value,
-                qty: newValues.Qty_S__c.value + newValues.Qty_M__c.value + newValues.Qty_L__c.value,
-            },
-        };
-        const orderItemChangeEvent = new CustomEvent('orderitemchange', {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: eventDetail,
-        });
-        this.dispatchEvent(orderItemChangeEvent);
+        this.dispatchEvent(event);
         this.isModified = false;
+    }
+
+    deleteOrderItem() {
+        const event = new CustomEvent('orderitemdelete', {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            detail: { Id: this.recordId },
+        });
+        this.dispatchEvent(event);
     }
 }
