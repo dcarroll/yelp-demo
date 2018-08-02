@@ -1,25 +1,21 @@
 import { Element, track, wire, api } from 'engine';
 
 /** Record DML operations. */
-import {
-    getRecordCreateDefaults,
-    createRecord,
-    generateRecordInputForCreate,
-    updateRecord,
-} from 'lightning-ui-api-record';
-import { getFieldValue } from 'c-utils';
+import { createRecord, updateRecord } from 'lightning-ui-api-record';
 
 /** Use Apex to fetch related records. */
 import { refreshApex } from '@salesforce/apex';
 import getOrderItems from '@salesforce/apex/OrderController.getOrderItems';
+import { getFieldValue, getSObjectFieldValue } from 'c-utils';
 
 // TODO W-5097897 - use deleteRecord from lightning-ui-api-record
 import deleteOrderItem from '@salesforce/apex/OrderController.deleteOrderItem';
 
-/** Event to display a toast. */
+// TODO W-5159536 - adopt final notifications API
+import { showToast } from 'lightning-notifications-library';
 
 /** Static Resources. */
-import assets from '@salesforce/resource-url/bike_assets';
+import bike_assets from '@salesforce/resource-url/bike_assets';
 
 /** Order_Item__c Schema. */
 import OrderItemObject from '@salesforce/schema/Order_Item__c';
@@ -30,38 +26,38 @@ import QtyMediumField from '@salesforce/schema/Order_Item__c.Qty_M__c';
 import QtyLargeField from '@salesforce/schema/Order_Item__c.Qty_L__c';
 import PriceField from '@salesforce/schema/Order_Item__c.Price__c';
 
-/** Product__c Schema. */
+/** Order_Item__c Schema. */
 import ProductMSRPField from '@salesforce/schema/Product__c.MSRP__c';
 
 /** Discount for resellers. TODO - move to custom field on Account. */
 const DISCOUNT = 0.6;
 
 /**
- * Gets the quantity of all items in a Apex-retrieved Order_Item__c.
+ * Gets the quantity of all items in an Order_Item__c SObject.
  */
-function getQuantity(orderItem) {
+function getQuantity(orderItemSobject) {
     return (
-        orderItem[QtySmallField.fieldApiName] +
-        orderItem[QtyMediumField.fieldApiName] +
-        orderItem[QtyLargeField.fieldApiName]
+        getSObjectFieldValue(orderItemSobject, QtySmallField) +
+        getSObjectFieldValue(orderItemSobject, QtyMediumField) +
+        getSObjectFieldValue(orderItemSobject, QtyLargeField)
     );
 }
 
 /**
- * Gets the price for the specified quantity of Apex-retrieved Order_Item__c.
+ * Gets the price for the specified quantity of Order_Item__c SObject.
  */
-function getPrice(orderItem, quantity) {
-    return orderItem[PriceField.fieldApiName] * quantity;
+function getPrice(orderItemSobject, quantity) {
+    return getSObjectFieldValue(orderItemSobject, PriceField) * quantity;
 }
 
 /**
- * Calculates the quantity and price of all Apex-retrieved Order_Item__c[].
+ * Calculates the quantity and price of all Order_Item__c SObjects.
  */
-function calculateOrderSummary(orderItems) {
-    const summary = orderItems.reduce(
-        (acc, orderItem) => {
-            const quantity = getQuantity(orderItem);
-            const price = getPrice(orderItem, quantity);
+function calculateOrderSummary(orderItemSobjects) {
+    const summary = orderItemSobjects.reduce(
+        (acc, orderItemSobject) => {
+            const quantity = getQuantity(orderItemSobject);
+            const price = getPrice(orderItemSobject, quantity);
             acc.quantity += quantity;
             acc.price += price;
             return acc;
@@ -71,72 +67,73 @@ function calculateOrderSummary(orderItems) {
     return summary;
 }
 
+/**
+ * Builds Order__c by CRUD'ing the related Order_Item__c SObjects.
+ */
 export default class OrderBuilder extends Element {
-    /** Id of Order__c to display. */
+    /** Id of Order__c SObject to display. */
     @api recordId;
 
-    /** The Apex-retrieved Order_Item__c[] to display. */
-    @track orderItems = [];
+    /** The Order_Item__c SObjects to display. */
+    @track orderItemSobjects = [];
 
-    /** Total price of the Order__c. Calculated from the Order_Item__c[]. */
+    /** Total price of the Order__c. Calculated from this.orderItems. */
     @track orderPrice = 0;
 
-    /** Total quantity of the Order__c. Calculated from the Order_Item__c[]. */
+    /** Total quantity of the Order__c. Calculated from this.orderItems. */
     @track orderQuantity = 0;
 
     /** URL for company logo. */
-    logoUrl = assets + '/logo.svg';
+    logoUrl = bike_assets + '/logo.svg';
+
+    /** Wired Apex result so it may be programatically refreshed. */
+    wiredOrderItemSobjects;
 
     /** Apex load the Order__c's Order_Item_c[] and their related Product__c details. */
     @wire(getOrderItems, { orderId: '$recordId' })
     wiredGetOrderItems(value) {
-        this.wiredOrderItems = value;
+        this.wiredOrderItemSobjects = value;
         if (value.error) {
             this.showError({ title: 'Error Loading Order', message: value.error.message });
         } else if (value.data) {
-            this.setOrderItems(value.data);
+            this.setOrderItemSobjects(value.data);
         }
     }
 
-    // TODO - W-4907339 apiName will be renamed to objectApiName
-    @wire(getRecordCreateDefaults, { apiName: OrderItemObject.objectApiName })
-    defaults;
-
     /** Updates the order items, recalculating the order quantity and price. */
-    setOrderItems(orderItems) {
-        this.orderItems = orderItems;
-        const summary = calculateOrderSummary(this.orderItems);
+    setOrderItemSobjects(orderItemSobjects) {
+        this.orderItemSobjects = orderItemSobjects;
+        const summary = calculateOrderSummary(this.orderItemSobjects);
         this.orderQuantity = summary.quantity;
         this.orderPrice = summary.price;
     }
 
-    /** Handles drag-and-drop'ing a new product to create a new Order_Item__c. */
+    /** Handles drag-and-dropping a new product to create a new Order_Item__c. */
     dropHandler(event) {
         event.preventDefault();
 
-        // get product details
+        // Product__c from LDS
         const product = JSON.parse(event.dataTransfer.getData('product'));
-        const msrp = getFieldValue(product, ProductMSRPField).value;
 
-        // build new Order_Item__c
+        // build new Order_Item__c record
         const fields = {};
         fields[OrderField.fieldApiName] = this.recordId;
         fields[ProductField.fieldApiName] = product.id;
-        fields[PriceField.fieldApiName] = Math.round(msrp * DISCOUNT);
+        fields[PriceField.fieldApiName] = Math.round(getFieldValue(product, ProductMSRPField).value * DISCOUNT);
 
-        // create Order_Item__c on server
-        const recordInput = generateRecordInputForCreate(this.defaults.data.record);
-        Object.assign(recordInput, { fields });
+        // create Order_Item__c record on server
+        const recordInput = { apiName: OrderItemObject.objectApiName, fields };
         createRecord(recordInput)
             .then(() => {
-                // refresh the Apex-retrieved Order_Item__c[]
-                return refreshApex(this.wiredOrderItems);
+                // refresh the Order_Item__c SObjects
+                return refreshApex(this.wiredOrderItemSobjects);
             })
             .catch(e => {
                 this.showError({ message: e.message });
             });
     }
 
+    /** Handles for dragging events. */
     dragOverHandler(event) {
         event.preventDefault();
     }
@@ -144,7 +141,7 @@ export default class OrderBuilder extends Element {
     /** Handles event to change Order_Item__c details. */
     orderItemChangeHandler(evt) {
         const detail = evt.detail;
-        const Id = detail.Id;
+        const id = detail.id;
 
         // map back to schema shape
         const fields = {};
@@ -161,60 +158,63 @@ export default class OrderBuilder extends Element {
             fields[QtyLargeField.fieldApiName] = detail.quantityLarge;
         }
 
-        // optimistically make the change on the client (requires synthesizing the shape
-        // of an Apex-retrieved Order_Item__c).
-        const previousOrderItems = this.orderItems;
-        const orderItems = this.orderItems.map(orderItem => {
-            if (orderItem.Id === Id) {
-                return Object.assign({}, orderItem, fields);
+        // optimistically make the change on the client
+        const previousOrderItemSobjects = this.orderItemSobjects;
+        const orderItemSobjects = this.orderItemSobjects.map(orderItemSobject => {
+            if (orderItemSobject.Id === id) {
+                // synthesize a new Order_Item__c SObject
+                return Object.assign({}, orderItemSobject, fields);
             }
-            return orderItem;
+            return orderItemSobject;
         });
-        this.setOrderItems(orderItems);
+        this.setOrderItemSobjects(orderItemSobjects);
 
         // update Order_Item__c on the server
-        const recordInput = { fields: Object.assign({ Id }, fields) };
+        const recordInput = { fields: Object.assign({ Id: id }, fields) };
         updateRecord(recordInput)
             .then(() => {
                 // if there were triggers/etc that invalidate the Apex result then we'd refresh it
-                // return refreshApex(this.wiredOrderItems);
+                // return refreshApex(this.wiredOrderItemSobjects);
             })
             .catch(e => {
                 // error updating server so rollback to previous data
-                this.setOrderItems(previousOrderItems);
+                this.setOrderItemSobjects(previousOrderItemSobjects);
                 this.showError({ message: e.message });
             });
     }
 
     /** Handles event to delete Order_Item__c. */
     orderItemDeleteHandler(evt) {
-        const Id = evt.detail.Id;
+        const id = evt.detail.id;
 
         // optimistically make the change on the client
-        let previousOrderItems = this.orderItems;
-        const orderItems = this.orderItems.filter(orderItem => orderItem.Id !== Id);
-        this.setOrderItems(orderItems);
+        let previousOrderItemSobjects = this.orderItemSobjects;
+        const orderItemSobjects = this.orderItemSobjects.filter(orderItemSobject => orderItemSobject.Id !== id);
+        this.setOrderItemSobjects(orderItemSobjects);
 
-        // delete Order_Item__c on the server
-        deleteOrderItem({ orderItemId: Id })
+        // delete Order_Item__c SObject on the server
+        deleteOrderItem({ orderItemId: id })
             .then(() => {
                 // if there were triggers/etc that invalidate the Apex result then we'd refresh it
-                // return refreshApex(this.wiredOrderItems);
+                // return refreshApex(this.wiredOrderItemSobjects);
             })
             .catch(e => {
                 // error updating server so rollback to previous data
-                this.setOrderItems(previousOrderItems);
+                this.setOrderItemSobjects(previousOrderItemSobjects);
                 this.showError({ message: e.message });
             });
     }
 
     /** Displays an error. */
     showError({ title, message }) {
-        // TODO - display this in the UI
-        window.console.error(title || 'Error Updating Order', message);
+        showToast({
+            title: title || 'Error Updating Order',
+            message,
+            variant: 'error',
+        });
     }
     /** Whether there no Order_Item__c to display */
     get isEmpty() {
-        return this.orderItems.length === 0;
+        return this.orderItemSobjects.length === 0;
     }
 }

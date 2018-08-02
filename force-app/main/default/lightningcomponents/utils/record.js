@@ -9,15 +9,14 @@
  */
 export function getFieldValue(record, field) {
     const fields = field.fieldApiName.split('.');
-    return recursiveGetFieldValue(record, fields);
-}
-
-function recursiveGetFieldValue(record, fields) {
-    const f = fields[0];
-    const value = record.fields[f];
-    // if at final field || need to traverse to a sub-record and there isn't a sub-record
-    if (fields.length === 1 || !value.value) {
-        return value;
+    while (fields.length > 0 && record) {
+        const f = fields.shift();
+        record = record.fields[f];
+        if (record === undefined) {
+            return undefined;
+        } else if (fields.length > 0) {
+            record = record.value;
+        }
     }
-    return recursiveGetFieldValue(value.value, fields.slice(1));
+    return record;
 }

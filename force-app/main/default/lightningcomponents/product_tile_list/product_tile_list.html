@@ -5,7 +5,12 @@
         </template>
         <div class="content">
             <template for:each={selectedProducts} for:item="product">
-                <c-product_tile key={product.id} product={product} class="slds-m-around_x-small"></c-product_tile>
+                <c-product_tile
+                    key={product.id}
+                    product={product}
+                    draggable={tilesAreDraggable}
+                    class="slds-m-around_x-small">
+                </c-product_tile>
             </template>
             <template if:true={isEmpty}>
                 <div class="slds-align_absolute-center placeholder">

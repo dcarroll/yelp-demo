@@ -1,6 +1,9 @@
 import { Element, track } from 'engine';
 import pubsub from 'c-pubsub';
 
+/**
+ * Displays a filter panel to search for Product__c[].
+ */
 export default class ProductFilter extends Element {
     @track searchKey = '';
     @track maxPrice = 10000;

@@ -1,15 +1,21 @@
 import { Element, api, track, wire } from 'engine';
 import pubsub from 'c-pubsub';
 import bike_assets from '@salesforce/resource-url/bike_assets';
-import { getListUi } from 'lightning-ui-api-list-ui';
 
+/** Wire adapter for list views. */
+import { getListUi } from 'lightning-ui-api-list-ui';
+import { getFieldValue } from 'c-utils';
+
+// TODO W-5159536 - adopt final notifications API
+import { showToast } from 'lightning-notifications-library';
+
+/** Schema. */
 import ProductObject from '@salesforce/schema/Product__c.Name';
 import NameField from '@salesforce/schema/Product__c.Name';
 import LevelField from '@salesforce/schema/Product__c.Level__c';
 import CategoryField from '@salesforce/schema/Product__c.Category__c';
 import MaterialField from '@salesforce/schema/Product__c.Material__c';
 import MSRPField from '@salesforce/schema/Product__c.MSRP__c';
-import { getFieldValue } from 'c-utils';
 
 function getCategories(filters) {
     const categories = [];
@@ -54,37 +60,43 @@ export default class ProductTileList extends Element {
     /** Whether to display the search bar. */
     @api searchBarIsVisible = false;
 
+    /** Whether the product tiles are draggable. */
+    @api tilesAreDraggable = false;
+
     /** Url for bike logo. */
-    logoUrl = bike_assets + '/logo.svg';
+    @track logoUrl = bike_assets + '/logo.svg';
 
     /** All available products. */
     products;
 
-    /** Products matching search criteria. */
+    /** Product__c[] matching search criteria. */
     @track selectedProducts = [];
 
     /** Load the list of available products. */
-    @wire(getListUi, { objectApiName: ProductObject, listViewApiName: 'ProductList' })
+    @wire(getListUi, { objectApiName: ProductObject, listViewApiName: 'ProductList', sortBy: ['Name'] })
     wiredProducts({ error, data }) {
         if (data) {
             this.products = this.selectedProducts = data.records.records;
         } else if (error) {
-            // TODO: handle errors
+            showToast({
+                title: 'Error Loading Product List',
+                message: error.message,
+                variant: 'error',
+            });
         }
     }
 
     connectedCallback() {
-        this.filterChangeCallback = this.onFilterChange.bind(this);
-        pubsub.register('filterChange', this.filterChangeCallback);
+        this.boundFilterChangeHandler = this.filterChangeHandler.bind(this);
+        pubsub.register('filterChange', this.boundFilterChangeHandler);
     }
 
     disconnectedCallback() {
-        pubsub.unregister('filterChange', this.filterChangeCallback);
+        pubsub.unregister('filterChange', this.boundFilterChangeHandler);
     }
 
     searchKeyChangeHandler(event) {
         const searchKey = event.target.value.toLowerCase();
-
         this.selectedProducts = this.products.filter(product =>
             getFieldValue(product, NameField)
                 .value.toLowerCase()
@@ -92,7 +104,7 @@ export default class ProductTileList extends Element {
         );
     }
 
-    onFilterChange(filters) {
+    filterChangeHandler(filters) {
         const searchKey = filters.searchKey.toLowerCase();
         const categories = getCategories(filters);
         const materials = getMaterials(filters);

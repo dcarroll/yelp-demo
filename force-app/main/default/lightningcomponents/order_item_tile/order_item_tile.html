@@ -6,10 +6,10 @@
             MSRP: <lightning-formatted-number value={msrp} format-style="currency" currency-code="USD"></lightning-formatted-number>
         </p>
         <div class="form slds-align_absolute-center">
-            <lightning-input onchange={handleChange} value={price} data-field-name="price" label="Price" type="number" formatter="currency" class="price"></lightning-input>
-            <lightning-input onchange={handleChange} value={quantitySmall} data-field-name="quantitySmall" label="Small" type="number" class="quantity"></lightning-input>
-            <lightning-input onchange={handleChange} value={quantityMedium} data-field-name="quantityMedium" label="Medium" type="number" class="quantity"></lightning-input>
-            <lightning-input onchange={handleChange} value={quantityLarge} data-field-name="quantityLarge" label="Large" type="number" class="quantity"></lightning-input>
+            <lightning-input onchange={formChangeHandler} value={price} data-field-name="price" label="Price" type="number" formatter="currency" class="price"></lightning-input>
+            <lightning-input onchange={formChangeHandler} value={quantitySmall} data-field-name="quantitySmall" label="Small" type="number" max-length="3" class="quantity"></lightning-input>
+            <lightning-input onchange={formChangeHandler} value={quantityMedium} data-field-name="quantityMedium" label="Medium" type="number" max-length="3" class="quantity"></lightning-input>
+            <lightning-input onchange={formChangeHandler} value={quantityLarge} data-field-name="quantityLarge" label="Large" type="number" max-length="3" class="quantity"></lightning-input>
         </div>
         <div class="action-buttons slds-align_absolute-center">
             <lightning-button-icon onclick={deleteOrderItem} icon-name="utility:delete" variant="bare" size="large" class="delete-button"></lightning-button-icon>

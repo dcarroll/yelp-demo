@@ -10,6 +10,7 @@
     <tagConfigs>
         <tagConfig tags="lightning__RecordHome">
             <property name="searchBarIsVisible" type="Boolean" label="Search bar visible" />
+            <property name="tilesAreDraggable" type="Boolean" label="Product tiles are draggable" />
             <objects>
                 <object>Order__c</object>
             </objects>

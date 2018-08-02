@@ -80,6 +80,10 @@
                 <name>searchBarIsVisible</name>
                 <value>true</value>
             </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>tilesAreDraggable</name>
+                <value>true</value>
+            </componentInstanceProperties>
             <componentName>product_tile_list</componentName>
         </componentInstances>
         <mode>Replace</mode>
