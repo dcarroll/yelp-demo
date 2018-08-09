@@ -27,7 +27,7 @@
     "eslint": "4.16.0",
     "eslint-plugin-lwc": "0.3.2",
     "husky": "^0.15.0-rc.8",
-    "lts-jest": "^0.2.3",
+    "lts-jest": "0.2.7",
     "prettier": "1.10.2",
     "semver": "^5.5.0",
     "shelljs": "^0.8.1"

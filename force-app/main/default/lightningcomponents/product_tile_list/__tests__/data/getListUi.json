@@ -1,0 +1,216 @@
+{
+  "eTag": "edaa9de452afe2095132ecdcc5cad7c6",
+  "info": {
+      "cloneable": true,
+      "createable": true,
+      "deletable": true,
+      "displayColumns": [
+          {
+              "fieldApiName": "Id",
+              "label": "Record ID",
+              "sortable": true
+          },
+          {
+              "fieldApiName": "Name",
+              "label": "Product Name",
+              "sortable": true
+          },
+          {
+              "fieldApiName": "MSRP__c",
+              "label": "MSRP",
+              "sortable": true
+          },
+          {
+              "fieldApiName": "Description__c",
+              "label": "Description",
+              "sortable": false
+          },
+          {
+              "fieldApiName": "Category__c",
+              "label": "Category",
+              "sortable": true
+          },
+          {
+              "fieldApiName": "Level__c",
+              "label": "Level",
+              "sortable": true
+          },
+          {
+              "fieldApiName": "Picture_URL__c",
+              "label": "Picture URL",
+              "sortable": true
+          },
+          {
+              "fieldApiName": "Material__c",
+              "label": "Material",
+              "sortable": true
+          }
+      ],
+      "eTag": "2addf889a214fd9c02ab1b160a2824a8",
+      "filterLogicString": null,
+      "filteredByInfo": [],
+      "label": "ProductList",
+      "listReference": {
+          "id": "00BR00000014IIQMA2",
+          "listViewApiName": "ProductList",
+          "objectApiName": "Product__c",
+          "type": "listView"
+      },
+      "orderedByInfo": [
+          {
+              "fieldApiName": "Id",
+              "isAscending": true,
+              "label": "Record ID"
+          }
+      ],
+      "updateable": true,
+      "userPreferences": {
+          "columnWidths": {
+              "Picture_URL__c": -1,
+              "Level__c": -1,
+              "MSRP__c": -1,
+              "Description__c": -1,
+              "Category__c": -1,
+              "Id": -1,
+              "Material__c": -1,
+              "Name": -1
+          },
+          "columnWrap": {
+              "Picture_URL__c": false,
+              "Level__c": false,
+              "MSRP__c": false,
+              "Description__c": false,
+              "Category__c": false,
+              "Id": false,
+              "Material__c": false,
+              "Name": false
+          }
+      },
+      "visibility": "Public",
+      "visibilityEditable": true
+  },
+  "records": {
+      "count": 18,
+      "currentPageToken": "0",
+      "currentPageUrl": "/services/data/v44.0/ui-api/list-records/Product__c/ProductList?pageSize=50&pageToken=0&sortBy=Name",
+      "listInfoETag": "2addf889a214fd9c02ab1b160a2824a8",
+      "nextPageToken": null,
+      "nextPageUrl": null,
+      "previousPageToken": null,
+      "previousPageUrl": null,
+      "records": [
+          {
+              "apiName": "Product__c",
+              "childRelationships": {},
+              "eTag": "8af401f6c63df9193fd2d95ca04ff0b5",
+              "fields": {
+                  "Category__c": {
+                      "displayValue": "Mountain",
+                      "value": "Mountain"
+                  },
+                  "CreatedDate": {
+                      "displayValue": null,
+                      "value": "2018-08-01T07:01:50.000Z"
+                  },
+                  "Description__c": {
+                      "displayValue": null,
+                      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                  },
+                  "Id": {
+                      "displayValue": null,
+                      "value": "a02R0000001to5OIAQ"
+                  },
+                  "LastModifiedDate": {
+                      "displayValue": null,
+                      "value": "2018-08-01T07:01:50.000Z"
+                  },
+                  "Level__c": {
+                      "displayValue": "Racer",
+                      "value": "Racer"
+                  },
+                  "MSRP__c": {
+                      "displayValue": "$7,800",
+                      "value": 7800.0
+                  },
+                  "Material__c": {
+                      "displayValue": "Carbon",
+                      "value": "Carbon"
+                  },
+                  "Name": {
+                      "displayValue": null,
+                      "value": "DYNAMO X1"
+                  },
+                  "Picture_URL__c": {
+                      "displayValue": null,
+                      "value": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike1.jpeg"
+                  },
+                  "SystemModstamp": {
+                      "displayValue": null,
+                      "value": "2018-08-01T07:01:50.000Z"
+                  }
+              },
+              "id": "a02R0000001to5OIAQ",
+              "lastModifiedById": null,
+              "lastModifiedDate": "2018-08-01T07:01:50.000Z",
+              "recordTypeInfo": null,
+              "systemModstamp": "2018-08-01T07:01:50.000Z"
+          },
+          {
+              "apiName": "Product__c",
+              "childRelationships": {},
+              "eTag": "4e873339414854bc09b2a07ced05458a",
+              "fields": {
+                  "Category__c": {
+                      "displayValue": "Mountain",
+                      "value": "Mountain"
+                  },
+                  "CreatedDate": {
+                      "displayValue": null,
+                      "value": "2018-08-01T07:01:50.000Z"
+                  },
+                  "Description__c": {
+                      "displayValue": null,
+                      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                  },
+                  "Id": {
+                      "displayValue": null,
+                      "value": "a02R0000001to5QIAQ"
+                  },
+                  "LastModifiedDate": {
+                      "displayValue": null,
+                      "value": "2018-08-01T07:01:50.000Z"
+                  },
+                  "Level__c": {
+                      "displayValue": "Racer",
+                      "value": "Racer"
+                  },
+                  "MSRP__c": {
+                      "displayValue": "$6,800",
+                      "value": 6800.0
+                  },
+                  "Material__c": {
+                      "displayValue": "Aluminum",
+                      "value": "Aluminum"
+                  },
+                  "Name": {
+                      "displayValue": null,
+                      "value": "DYNAMO X2"
+                  },
+                  "Picture_URL__c": {
+                      "displayValue": null,
+                      "value": "https://s3-us-west-1.amazonaws.com/sfdc-demo/bikes/bike3.jpeg"
+                  },
+                  "SystemModstamp": {
+                      "displayValue": null,
+                      "value": "2018-08-01T07:01:50.000Z"
+                  }
+              },
+              "id": "a02R0000001to5QIAQ",
+              "lastModifiedById": null,
+              "lastModifiedDate": "2018-08-01T07:01:50.000Z",
+              "recordTypeInfo": null,
+              "systemModstamp": "2018-08-01T07:01:50.000Z"
+          }
+      ]
+  }
+}

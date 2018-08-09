@@ -18,14 +18,14 @@ export default class ProductTile extends Element {
     _product;
     /** Product__c to display. */
     @api
+    get product() {
+        return this._product;
+    }
     set product(value) {
         this._product = value;
         this.pictureUrl = getFieldValue(value, PictureURLField).value;
         this.name = getFieldValue(value, NameField).value;
         this.msrp = getFieldValue(value, MSRPField).value;
-    }
-    get product() {
-        return this._product;
     }
 
     /** Product__c field values to display. */

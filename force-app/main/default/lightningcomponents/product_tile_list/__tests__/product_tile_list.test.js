@@ -1,7 +1,7 @@
 import { createElement } from 'engine';
 import ProductTitleList from 'c-product_tile_list';
-import { registerTestWireAdapter } from 'wire-service-jest-util';
-import { getProducts } from '@apex/ProductController.getProducts';
+import { registerLdsTestWireAdapter } from 'wire-service-jest-util';
+import { getListUi } from 'lightning-ui-api-list-ui';
 import pubsub from 'c-pubsub';
 
 // Jest does not know how to resolve Salesforce specific imports like @apex so we need to mock it
@@ -17,30 +17,22 @@ jest.mock(
 );
 
 // use the wire-service-jest-util to manually emit data through the wire adapters
-const getProductsTestAdapter = registerTestWireAdapter(getProducts);
+const getListUiAdapter = registerLdsTestWireAdapter(getListUi);
 
-const mockRecords = [
-    {
-        Category__c: 'Mountain',
-        Description__c: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        Id: 'a02Z000000L5kXVIAZ',
-        Level__c: 'Racer',
-        MSRP__c: 10000,
-        Material__c: 'Carbon',
-        Name: 'MODEL A',
-        Picture_URL__c: 'https://foo.jpeg',
-    },
-    {
-        Category__c: 'Mountain',
-        Description__c: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        Id: 'a02Z000000L5kXWIAZ',
-        Level__c: 'Racer',
-        MSRP__c: 7800,
-        Material__c: 'Carbon',
-        Name: 'DYNAMO X1',
-        Picture_URL__c: 'https://foo.jpeg',
-    },
-];
+/*
+ * Import a snapshot of getListUi's response for functional verification. This eliminates
+ * the need to connect to an org to retrieve data, which allows for running all unit tests
+ * on localhost (aka offline).
+ *
+ * This data can be captured using a REST client accessing the UI API resource which the
+ * @wire(getListUi) represents: /ui-api/mru-list-ui/${objectApiName}. Documentation for
+ * this UI API resource is at
+ * https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_resources_mru_list_views_records_md.htm
+ *
+ * Community-provided instructions for access Salesforce REST resources is at
+ * https://blog.mkorman.uk/using-postman-to-explore-salesforce-restful-web-services/
+ */
+const mockGetListUi = require('./data/getListUi.json');
 
 describe('c-product_tile_list', () => {
     afterEach(() => {
@@ -48,6 +40,9 @@ describe('c-product_tile_list', () => {
         while (document.body.firstChild) {
             document.body.removeChild(document.body.firstChild);
         }
+
+        // prevent data saved on mocks from leaking between tests
+        jest.clearAllMocks();
     });
 
     describe('no products', () => {
@@ -62,7 +57,7 @@ describe('c-product_tile_list', () => {
         it('does not render any c-product_tile components', () => {
             const element = createElement('c-product_tile_list', { is: ProductTitleList });
             document.body.appendChild(element);
-            getProductsTestAdapter.emit({ data: [] });
+            getListUiAdapter.emit({ records: { records: [] } });
             // return a promise to wait for any asynchronous DOM updates. Jest
             // will automatically wait for the Promise chain to complete before
             // ending the test and fail the test if the Promise ends in the
@@ -78,8 +73,8 @@ describe('c-product_tile_list', () => {
         it('does not display "no products" message', () => {
             const expected = 'There are no products matching your current selection';
             const element = createElement('c-product_tile_list', { is: ProductTitleList });
+            getListUiAdapter.emit(mockGetListUi);
             document.body.appendChild(element);
-            getProductsTestAdapter.emit({ data: mockRecords });
             return Promise.resolve().then(() => {
                 const content = element.querySelector('.content');
                 expect(content.textContent).not.toBe(expected);
@@ -89,10 +84,10 @@ describe('c-product_tile_list', () => {
         it('renders a c-product_tile for each product item', () => {
             const element = createElement('c-product_tile_list', { is: ProductTitleList });
             document.body.appendChild(element);
-            getProductsTestAdapter.emit({ data: mockRecords });
+            getListUiAdapter.emit(mockGetListUi);
             return Promise.resolve().then(() => {
                 const productTiles = element.querySelectorAll('c-product_tile');
-                expect(productTiles).toHaveLength(mockRecords.length);
+                expect(productTiles).toHaveLength(mockGetListUi.records.records.length);
             });
         });
 
@@ -103,7 +98,7 @@ describe('c-product_tile_list', () => {
                 carbon: true,
                 commuter: true,
                 enthusiast: true,
-                maxPrice: 9999, // this will filter out the $10,000 bike
+                maxPrice: 7000, // this will filter out the $7,800 bike
                 mountain: true,
                 racer: true,
                 searchKey: '',
@@ -111,7 +106,7 @@ describe('c-product_tile_list', () => {
 
             const element = createElement('c-product_tile_list', { is: ProductTitleList });
             document.body.appendChild(element);
-            getProductsTestAdapter.emit({ data: mockRecords });
+            getListUiAdapter.emit(mockGetListUi);
             let originalProductCount;
 
             return Promise.resolve()
