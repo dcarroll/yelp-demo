@@ -1,8 +1,8 @@
 /**
  * Gets a field value from an Apex-retrieved SObject.
- * @param {SObject} sobject The SObject holding the field.
- * @param {FieldId} field The field to return.
- * @return {any} The field's value. If it doesn't exist, undefined is returned.
+ * @param {SObject} sobject - The SObject holding the field.
+ * @param {FieldId} field - The field to return.
+ * @return {*} The field's value. If it doesn't exist, undefined is returned.
  *
  * TODO - W-5274497 adopt @salesforce/apex's version when available.
  */

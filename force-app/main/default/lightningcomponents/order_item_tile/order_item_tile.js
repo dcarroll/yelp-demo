@@ -1,20 +1,19 @@
 import { Element, api, track } from 'engine';
+
+/** Util to extract field values from SObjects. */
 import { getSObjectFieldValue } from 'c-utils';
 
 /** Order_Item__c Schema. */
-import ProductPictureURLField from '@salesforce/schema/Order_Item__c.Product__r.Picture_URL__c';
-import ProductNameField from '@salesforce/schema/Order_Item__c.Product__r.Name';
-import ProductMSRPField from '@salesforce/schema/Order_Item__c.Product__r.MSRP__c';
-import PriceField from '@salesforce/schema/Order_Item__c.Price__c';
-import QtySmallField from '@salesforce/schema/Order_Item__c.Qty_S__c';
-import QtyMediumField from '@salesforce/schema/Order_Item__c.Qty_M__c';
-import QtyLargeField from '@salesforce/schema/Order_Item__c.Qty_L__c';
+import PRODUCT_PICTURE_URL_FIELD from '@salesforce/schema/Order_Item__c.Product__r.Picture_URL__c';
+import PRODUCT_NAME_FIELD from '@salesforce/schema/Order_Item__c.Product__r.Name';
+import PRODUCT_MSRP_FIELD from '@salesforce/schema/Order_Item__c.Product__r.MSRP__c';
+import PRICE_FIELD from '@salesforce/schema/Order_Item__c.Price__c';
+import QTY_SMALL_FIELD from '@salesforce/schema/Order_Item__c.Qty_S__c';
+import QTY_MEDIUM_FIELD from '@salesforce/schema/Order_Item__c.Qty_M__c';
+import QTY_LARGE_FIELD from '@salesforce/schema/Order_Item__c.Qty_L__c';
 
 /**
  * Displays a Order_Item__c SObject.
- *
- * Ideally order_build would retrieve Order_Item__c[] via Lightning Data Service, in which
- * case it could provide
  */
 export default class OrderItemTile extends Element {
     _orderItemSobject;
@@ -22,19 +21,19 @@ export default class OrderItemTile extends Element {
     @api
     set orderItemSobject(value) {
         this._orderItemSobject = value;
-        this.pictureUrl = getSObjectFieldValue(value, ProductPictureURLField);
-        this.name = getSObjectFieldValue(value, ProductNameField);
-        this.msrp = getSObjectFieldValue(value, ProductMSRPField);
-        this.price = getSObjectFieldValue(value, PriceField);
-        this.quantitySmall = getSObjectFieldValue(value, QtySmallField);
-        this.quantityMedium = getSObjectFieldValue(value, QtyMediumField);
-        this.quantityLarge = getSObjectFieldValue(value, QtyLargeField);
+        this.pictureUrl = getSObjectFieldValue(value, PRODUCT_PICTURE_URL_FIELD);
+        this.name = getSObjectFieldValue(value, PRODUCT_NAME_FIELD);
+        this.msrp = getSObjectFieldValue(value, PRODUCT_MSRP_FIELD);
+        this.price = getSObjectFieldValue(value, PRICE_FIELD);
+        this.quantitySmall = getSObjectFieldValue(value, QTY_SMALL_FIELD);
+        this.quantityMedium = getSObjectFieldValue(value, QTY_MEDIUM_FIELD);
+        this.quantityLarge = getSObjectFieldValue(value, QTY_LARGE_FIELD);
     }
     get orderItemSobject() {
         return this._orderItemSobject;
     }
 
-    /** Order_Item__c field values to display. */
+    /** Order_Item__c SObject field values to display. */
     @track id;
     @track pictureUrl;
     @track name;

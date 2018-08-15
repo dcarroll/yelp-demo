@@ -1,21 +1,30 @@
 import { Element, track, wire } from 'engine';
+
+/** Wire adapter to load records. */
 import { getRecord } from 'lightning-ui-api-record';
+
+/** Util to extract field values from records. */
 import { getFieldValue } from 'c-utils';
+
+/** Pub-sub mechanism for sibling component communication. */
 import pubsub from 'c-pubsub';
 
 // TODO W-5159536 - adopt final notifications API
 import { showToast } from 'lightning-notifications-library';
 
-import bike_assets from '@salesforce/resource-url/bike_assets';
+/** Static Resources. */
+import BIKE_ASSETS_URL from '@salesforce/resource-url/bike_assets';
 
-import NameField from '@salesforce/schema/Product__c.Name';
-import LevelField from '@salesforce/schema/Product__c.Level__c';
-import CategoryField from '@salesforce/schema/Product__c.Category__c';
-import MaterialField from '@salesforce/schema/Product__c.Material__c';
-import MSRPField from '@salesforce/schema/Product__c.MSRP__c';
-import PictureURLField from '@salesforce/schema/Product__c.Picture_URL__c';
+/** Product__c Schema. */
+import NAME_FIELD from '@salesforce/schema/Product__c.Name';
+import LEVEL_FIELD from '@salesforce/schema/Product__c.Level__c';
+import CATEGORY_FIELD from '@salesforce/schema/Product__c.Category__c';
+import MATERIAL_FIELD from '@salesforce/schema/Product__c.Material__c';
+import MSRP_FIELD from '@salesforce/schema/Product__c.MSRP__c';
+import PICTURE_URL_FIELD from '@salesforce/schema/Product__c.Picture_URL__c';
 
-const fields = [NameField, LevelField, CategoryField, MaterialField, MSRPField, PictureURLField];
+/** Record fields to load. */
+const fields = [NAME_FIELD, LEVEL_FIELD, CATEGORY_FIELD, MATERIAL_FIELD, MSRP_FIELD, PICTURE_URL_FIELD];
 
 /**
  * Component to display details of a Product__c.
@@ -46,16 +55,16 @@ export default class ProductCard extends Element {
             });
         } else if (data) {
             this.product = data;
-            this.name = getFieldValue(this.product, NameField).value;
-            this.pictureUrl = getFieldValue(this.product, PictureURLField).value;
-            this.category = getFieldValue(this.product, CategoryField).displayValue;
-            this.level = getFieldValue(this.product, LevelField).displayValue;
-            this.msrp = getFieldValue(this.product, MSRPField).value;
-            this.material = getFieldValue(this.product, MaterialField).displayValue;
+            this.name = getFieldValue(this.product, NAME_FIELD).value;
+            this.pictureUrl = getFieldValue(this.product, PICTURE_URL_FIELD).value;
+            this.category = getFieldValue(this.product, CATEGORY_FIELD).displayValue;
+            this.level = getFieldValue(this.product, LEVEL_FIELD).displayValue;
+            this.msrp = getFieldValue(this.product, MSRP_FIELD).value;
+            this.material = getFieldValue(this.product, MATERIAL_FIELD).displayValue;
         }
     }
 
-    @track logo = bike_assets + '/logo.svg';
+    @track logo = BIKE_ASSETS_URL + '/logo.svg';
 
     connectedCallback() {
         this.boundProductSelectedHandler = this.productSelectedHandler.bind(this);
@@ -66,6 +75,10 @@ export default class ProductCard extends Element {
         pubsub.unregister('productSelected', this.boundProductSelectedHandler);
     }
 
+    /**
+     * Handler for when a product is selected. When `this.recordId` changes, the @wire
+     * above will detect the change and provision new data.
+     */
     productSelectedHandler(product) {
         this.recordId = product.id;
     }

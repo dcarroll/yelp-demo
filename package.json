@@ -1,7 +1,7 @@
 {
   "name": "ebikes-lwc",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0-beta",
   "description": "oZo Bicycles Lightning Web Components Sample App",
   "scripts": {
     "lint": "npm run lint:lwc && npm run lint:aura",
@@ -9,6 +9,8 @@
     "lint:aura": "sfdx force:lightning:lint force-app --exit",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "lts-jest test",
+    "test:unit:watch": "lts-jest test --watch",
+    "test:unit:debug": "node --inspect-brk ./node_modules/.bin/lts-jest test -a --runInBand",
     "prettier": "prettier --write '**/*.js'",
     "prettier:staged": "./bin/prettier-staged.js",
     "postinstall": "node bin/check-version.js"
@@ -17,7 +19,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/forcedotcom/dreamhouse-lwc"
+    "url": "git+https://github.com/forcedotcom/ebikes-lwc"
   },
   "engines": {
     "node": ">= 8.9.4",

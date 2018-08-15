@@ -15,19 +15,19 @@ import deleteOrderItem from '@salesforce/apex/OrderController.deleteOrderItem';
 import { showToast } from 'lightning-notifications-library';
 
 /** Static Resources. */
-import bike_assets from '@salesforce/resource-url/bike_assets';
+import BIKE_ASSETS_URL from '@salesforce/resource-url/bike_assets';
 
 /** Order_Item__c Schema. */
-import OrderItemObject from '@salesforce/schema/Order_Item__c';
-import OrderField from '@salesforce/schema/Order_Item__c.Order__c';
-import ProductField from '@salesforce/schema/Order_Item__c.Product__c';
-import QtySmallField from '@salesforce/schema/Order_Item__c.Qty_S__c';
-import QtyMediumField from '@salesforce/schema/Order_Item__c.Qty_M__c';
-import QtyLargeField from '@salesforce/schema/Order_Item__c.Qty_L__c';
-import PriceField from '@salesforce/schema/Order_Item__c.Price__c';
+import ORDER_ITEM_OBJECT from '@salesforce/schema/Order_Item__c';
+import ORDER_FIELD from '@salesforce/schema/Order_Item__c.Order__c';
+import PRODUCT_FIELD from '@salesforce/schema/Order_Item__c.Product__c';
+import QTY_SMALL_FIELD from '@salesforce/schema/Order_Item__c.Qty_S__c';
+import QTY_MEDIUM_FIELD from '@salesforce/schema/Order_Item__c.Qty_M__c';
+import QTY_LARGE_FIELD from '@salesforce/schema/Order_Item__c.Qty_L__c';
+import PRICE_FIELD from '@salesforce/schema/Order_Item__c.Price__c';
 
 /** Order_Item__c Schema. */
-import ProductMSRPField from '@salesforce/schema/Product__c.MSRP__c';
+import PRODUCT_MSRP_FIELD from '@salesforce/schema/Product__c.MSRP__c';
 
 /** Discount for resellers. TODO - move to custom field on Account. */
 const DISCOUNT = 0.6;
@@ -37,9 +37,9 @@ const DISCOUNT = 0.6;
  */
 function getQuantity(orderItemSobject) {
     return (
-        getSObjectFieldValue(orderItemSobject, QtySmallField) +
-        getSObjectFieldValue(orderItemSobject, QtyMediumField) +
-        getSObjectFieldValue(orderItemSobject, QtyLargeField)
+        getSObjectFieldValue(orderItemSobject, QTY_SMALL_FIELD) +
+        getSObjectFieldValue(orderItemSobject, QTY_MEDIUM_FIELD) +
+        getSObjectFieldValue(orderItemSobject, QTY_LARGE_FIELD)
     );
 }
 
@@ -47,7 +47,7 @@ function getQuantity(orderItemSobject) {
  * Gets the price for the specified quantity of Order_Item__c SObject.
  */
 function getPrice(orderItemSobject, quantity) {
-    return getSObjectFieldValue(orderItemSobject, PriceField) * quantity;
+    return getSObjectFieldValue(orderItemSobject, PRICE_FIELD) * quantity;
 }
 
 /**
@@ -84,7 +84,7 @@ export default class OrderBuilder extends Element {
     @track orderQuantity = 0;
 
     /** URL for company logo. */
-    logoUrl = bike_assets + '/logo.svg';
+    logoUrl = BIKE_ASSETS_URL + '/logo.svg';
 
     /** Wired Apex result so it may be programatically refreshed. */
     wiredOrderItemSobjects;
@@ -117,12 +117,12 @@ export default class OrderBuilder extends Element {
 
         // build new Order_Item__c record
         const fields = {};
-        fields[OrderField.fieldApiName] = this.recordId;
-        fields[ProductField.fieldApiName] = product.id;
-        fields[PriceField.fieldApiName] = Math.round(getFieldValue(product, ProductMSRPField).value * DISCOUNT);
+        fields[ORDER_FIELD.fieldApiName] = this.recordId;
+        fields[PRODUCT_FIELD.fieldApiName] = product.id;
+        fields[PRICE_FIELD.fieldApiName] = Math.round(getFieldValue(product, PRODUCT_MSRP_FIELD).value * DISCOUNT);
 
         // create Order_Item__c record on server
-        const recordInput = { apiName: OrderItemObject.objectApiName, fields };
+        const recordInput = { apiName: ORDER_ITEM_OBJECT.objectApiName, fields };
         createRecord(recordInput)
             .then(() => {
                 // refresh the Order_Item__c SObjects
@@ -146,16 +146,16 @@ export default class OrderBuilder extends Element {
         // map back to schema shape
         const fields = {};
         if ('price' in detail) {
-            fields[PriceField.fieldApiName] = detail.price;
+            fields[PRICE_FIELD.fieldApiName] = detail.price;
         }
         if ('quantitySmall' in detail) {
-            fields[QtySmallField.fieldApiName] = detail.quantitySmall;
+            fields[QTY_SMALL_FIELD.fieldApiName] = detail.quantitySmall;
         }
         if ('quantityMedium' in detail) {
-            fields[QtyMediumField.fieldApiName] = detail.quantityMedium;
+            fields[QTY_MEDIUM_FIELD.fieldApiName] = detail.quantityMedium;
         }
         if ('quantityLarge' in detail) {
-            fields[QtyLargeField.fieldApiName] = detail.quantityLarge;
+            fields[QTY_LARGE_FIELD.fieldApiName] = detail.quantityLarge;
         }
 
         // optimistically make the change on the client

@@ -1,22 +1,29 @@
 import { Element, api, track, wire } from 'engine';
+
+/** Pub-sub mechanism for sibling component communication. */
 import pubsub from 'c-pubsub';
-import bike_assets from '@salesforce/resource-url/bike_assets';
+
+/** Static Resources. */
+import BIKE_ASSETS_URL from '@salesforce/resource-url/bike_assets';
 
 /** Wire adapter for list views. */
 import { getListUi } from 'lightning-ui-api-list-ui';
+
+/** Util to extract field values from records. */
 import { getFieldValue } from 'c-utils';
 
 // TODO W-5159536 - adopt final notifications API
 import { showToast } from 'lightning-notifications-library';
 
-/** Schema. */
-import ProductObject from '@salesforce/schema/Product__c.Name';
-import NameField from '@salesforce/schema/Product__c.Name';
-import LevelField from '@salesforce/schema/Product__c.Level__c';
-import CategoryField from '@salesforce/schema/Product__c.Category__c';
-import MaterialField from '@salesforce/schema/Product__c.Material__c';
-import MSRPField from '@salesforce/schema/Product__c.MSRP__c';
+/** Product__c Schema. */
+import PRODUCT_OBJECT from '@salesforce/schema/Product__c.Name';
+import NAME_FIELD from '@salesforce/schema/Product__c.Name';
+import LEVEL_FIELD from '@salesforce/schema/Product__c.Level__c';
+import CATEGORY_FIELD from '@salesforce/schema/Product__c.Category__c';
+import MATERIAL_FIELD from '@salesforce/schema/Product__c.Material__c';
+import MSRP_FIELD from '@salesforce/schema/Product__c.MSRP__c';
 
+/** Gets the categories to filter to. */
 function getCategories(filters) {
     const categories = [];
     if (filters.commuter) {
@@ -28,6 +35,7 @@ function getCategories(filters) {
     return categories;
 }
 
+/** Gets the materials to filter to. */
 function getMaterials(filters) {
     const materials = [];
     if (filters.aluminum) {
@@ -39,6 +47,7 @@ function getMaterials(filters) {
     return materials;
 }
 
+/** Gets the skill levels to filter to */
 function getLevels(filters) {
     const levels = [];
     if (filters.beginner) {
@@ -57,23 +66,36 @@ function getLevels(filters) {
  * Container component that loads and displays a list of Product__c records.
  */
 export default class ProductTileList extends Element {
-    /** Whether to display the search bar. */
+    /**
+     * Whether to display the search bar.
+     * TODO - normalize value because it may come as a boolean, string or otherwise.
+     */
     @api searchBarIsVisible = false;
 
-    /** Whether the product tiles are draggable. */
+    /**
+     * Whether the product tiles are draggable.
+     * TODO - normalize value because it may come as a boolean, string or otherwise.
+     */
     @api tilesAreDraggable = false;
 
     /** Url for bike logo. */
-    @track logoUrl = bike_assets + '/logo.svg';
+    @track logoUrl = BIKE_ASSETS_URL + '/logo.svg';
 
-    /** All available products. */
+    /** All available Product__c[]. */
     products;
 
     /** Product__c[] matching search criteria. */
     @track selectedProducts = [];
 
-    /** Load the list of available products. */
-    @wire(getListUi, { objectApiName: ProductObject, listViewApiName: 'ProductList', sortBy: ['Name'] })
+    /**
+     * Load the list of available products.
+     * TODO W-5336635 - sortBy should accept a schema object, not require fieldApiName
+     */
+    @wire(getListUi, {
+        objectApiName: PRODUCT_OBJECT,
+        listViewApiName: 'ProductList',
+        sortBy: [NAME_FIELD.fieldApiName],
+    })
     wiredProducts({ error, data }) {
         if (data) {
             this.products = this.selectedProducts = data.records.records;
@@ -98,7 +120,7 @@ export default class ProductTileList extends Element {
     searchKeyChangeHandler(event) {
         const searchKey = event.target.value.toLowerCase();
         this.selectedProducts = this.products.filter(product =>
-            getFieldValue(product, NameField)
+            getFieldValue(product, NAME_FIELD)
                 .value.toLowerCase()
                 .includes(searchKey),
         );
@@ -112,18 +134,18 @@ export default class ProductTileList extends Element {
 
         this.selectedProducts = this.products.filter(product => {
             return (
-                getFieldValue(product, NameField)
+                getFieldValue(product, NAME_FIELD)
                     .value.toLowerCase()
                     .includes(searchKey) &&
-                getFieldValue(product, MSRPField).value <= filters.maxPrice &&
-                categories.includes(getFieldValue(product, CategoryField).value) &&
-                materials.includes(getFieldValue(product, MaterialField).value) &&
-                levels.includes(getFieldValue(product, LevelField).value)
+                getFieldValue(product, MSRP_FIELD).value <= filters.maxPrice &&
+                categories.includes(getFieldValue(product, CATEGORY_FIELD).value) &&
+                materials.includes(getFieldValue(product, MATERIAL_FIELD).value) &&
+                levels.includes(getFieldValue(product, LEVEL_FIELD).value)
             );
         });
     }
 
-    get isEmpty() {
+    get zeroSelectedProducts() {
         return this.selectedProducts.length === 0;
     }
 }

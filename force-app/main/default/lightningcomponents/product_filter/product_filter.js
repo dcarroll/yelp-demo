@@ -1,4 +1,6 @@
 import { Element, track } from 'engine';
+
+/** Pub-sub mechanism for sibling component communication. */
 import pubsub from 'c-pubsub';
 
 /**
@@ -29,12 +31,12 @@ export default class ProductFilter extends Element {
     }
 
     searchKeyChangeHandler(event) {
-        this.searchKey = event.detail.value;
+        this.searchKey = event.target.value;
         this.fireFilterChangeEvent();
     }
 
     maxPriceChangeHandler(event) {
-        this.maxPrice = event.detail.value;
+        this.maxPrice = event.target.value;
         this.fireFilterChangeEvent();
     }
 
