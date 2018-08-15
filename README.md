@@ -1,4 +1,4 @@
-## oZo Bicycles Lightning Web Components Sample App [![CircleCI](https://circleci.com/gh/forcedotcom/ebikes-lwc.svg?style=svg&circle-token=9ec6704318a45814d2e03c0076b7757c8d15cebd)](https://circleci.com/gh/forcedotcom/ebikes-lwc)
+## oZo Bicycles Lightning Web Components Sample App - Winter 19 (216) [![CircleCI](https://circleci.com/gh/forcedotcom/ebikes-lwc.svg?style=svg&circle-token=9ec6704318a45814d2e03c0076b7757c8d15cebd)](https://circleci.com/gh/forcedotcom/ebikes-lwc)
 
 oZo bicycles is a fictitious electric bike manufacturer. This sample app demonstrates how to build applications on the Salesforce platform using Lightning web components. The application allows oZo to manage its products and its relationships with resellers.
 
