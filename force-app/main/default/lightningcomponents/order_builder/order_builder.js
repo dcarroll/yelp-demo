@@ -1,15 +1,12 @@
 import { Element, track, wire, api } from 'engine';
 
 /** Record DML operations. */
-import { createRecord, updateRecord } from 'lightning-ui-api-record';
+import { createRecord, updateRecord, deleteRecord } from 'lightning-ui-api-record';
 
 /** Use Apex to fetch related records. */
 import { refreshApex } from '@salesforce/apex';
 import getOrderItems from '@salesforce/apex/OrderController.getOrderItems';
 import { getFieldValue, getSObjectFieldValue } from 'c-utils';
-
-// TODO W-5097897 - use deleteRecord from lightning-ui-api-record
-import deleteOrderItem from '@salesforce/apex/OrderController.deleteOrderItem';
 
 // TODO W-5159536 - adopt final notifications API
 import { showToast } from 'lightning-notifications-library';
@@ -193,7 +190,7 @@ export default class OrderBuilder extends Element {
         this.setOrderItemSobjects(orderItemSobjects);
 
         // delete Order_Item__c SObject on the server
-        deleteOrderItem({ orderItemId: id })
+        deleteRecord(id)
             .then(() => {
                 // if there were triggers/etc that invalidate the Apex result then we'd refresh it
                 // return refreshApex(this.wiredOrderItemSobjects);
