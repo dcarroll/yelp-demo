@@ -1,0 +1,18 @@
+<template>
+
+    <li class="slds-coordinates__item">
+        <span class="slds-assistive-text" aria-live="polite"></span>
+        <button class="slds-coordinates__item-action slds-button_reset slds-media" onclick={itemSelected} aria-pressed="false">
+            <span class="slds-media__figure">
+                <lightning-icon icon-name="standard:search" size="small" alternative-text={foundItem.name} ></lightning-icon>
+            </span>
+            <span class="slds-media__body">
+                <p class="slds-text-link">{foundItem.name}</p>
+                <p>{foundItem.address}, {foundItem.city} {foundItem.phone}</p>
+                <img src={foundItem.ratingImg} class="ratingStars"></img>
+            </span>
+             
+        </button>
+    </li>
+
+</template>

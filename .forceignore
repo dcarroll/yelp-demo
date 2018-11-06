@@ -7,3 +7,4 @@ force-app/main/default/lightningcomponents/jsconfig.json
 
 force-app/main/default/lightningcomponents/.eslintrc.json
 **/__tests__/**
+**/YelpDemo/**

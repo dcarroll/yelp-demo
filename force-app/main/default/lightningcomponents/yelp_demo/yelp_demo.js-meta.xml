@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>44.0</apiVersion>
+    <isExposed>true</isExposed>
+    <tags>
+        <tag>lightning__AppHome</tag>
+        <tag>lightning__RecordHome</tag>
+        <tag>lightning__Home</tag>
+        <tag>lightning__HasRecordId</tag>
+    </tags>
+    <tagConfigs>
+        <tagConfig tags="lightning__RecordHome">
+            <property name="searchTerm" type="String" label="Default Search" default="Restaurants" description="What would you like to search for?" />
+            <property name="designHeight" type="String" label="Height" datasource="small,medium,large" default="small" description="How tall should the component?" />
+            <objects>
+                <object>Account</object>
+                <object>Contact</object>
+            </objects>
+        </tagConfig>
+    </tagConfigs>
+
+</LightningComponentBundle>

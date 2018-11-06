@@ -5,5 +5,6 @@
     "orgPreferences" : {
         "enabled": ["S1DesktopEnabled"],
         "disabled": ["S1EncryptedStoragePref2"]
-    }
+    },
+    "hasSampleData": true
 }
