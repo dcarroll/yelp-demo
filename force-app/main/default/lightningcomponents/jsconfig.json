@@ -3,32 +3,11 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c-card": [
-                "card/card.js"
-            ],
-            "c-order_builder": [
-                "order_builder/order_builder.js"
-            ],
-            "c-order_item_tile": [
-                "order_item_tile/order_item_tile.js"
-            ],
-            "c-product_card": [
-                "product_card/product_card.js"
-            ],
-            "c-product_filter": [
-                "product_filter/product_filter.js"
-            ],
-            "c-product_tile": [
-                "product_tile/product_tile.js"
-            ],
-            "c-product_tile_list": [
-                "product_tile_list/product_tile_list.js"
-            ],
             "c-pubsub": [
-                "pubsub/pubsub.js"
+                "yelp_demo/yelp_demo.js"
             ],
-            "c-utils": [
-                "utils/utils.js"
+            "c-yelp_demo_card": [
+                "yelp_demo_card/yelp_demo_card.js"
             ]
         }
     },
