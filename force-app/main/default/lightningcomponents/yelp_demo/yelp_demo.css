@@ -3,13 +3,13 @@
     overflow: hidden;
 }
 .small {
-    height: 28rem;
+    height: 20rem;
 }
 .medium {
-    height: 40rem;
+    height: 32rem;
 }
 .large {
-    height: 53rem;
+    height: 45rem;
 }
 .autoHeight {
     min-height: 100vh;
@@ -36,6 +36,7 @@
 	height: 50rem;
 	padding-bottom: 1rem;
 }
+
 .ratingStars {
 	max-width: 6.5rem;
 }
@@ -44,7 +45,7 @@ header {
 	padding-bottom: .25rem;
 }
 lightning-map {
-	margin-top: 5rem;
+	margin-top: 1.5rem;
 }
 .map {
 	width: 100%;
@@ -70,6 +71,7 @@ lightning-map {
     transition: transform .35s linear;
 }
 .backbutton {
-	float: left;
-	padding-right: 1rem;
+    top: -1.5rem;
+    position: absolute;
+    right: 0rem;
 }
